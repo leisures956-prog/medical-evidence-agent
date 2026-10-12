@@ -14,7 +14,7 @@ from app.search import (
 )
 
 
-app = FastAPI(title="Search Answer API", version="0.2.0")
+app = FastAPI(title="Search Answer API", version="0.2.1")
 
 SearchSource = Literal["local", "pubmed", "vector", "hybrid", "pubmed_hybrid", "all"]
 
