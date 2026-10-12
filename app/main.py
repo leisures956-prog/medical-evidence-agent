@@ -18,7 +18,7 @@ from app.comparison import build_comparison
 from app.medical_models import CompareResponse, EvidenceResponse
 
 
-app = FastAPI(title="Search Answer API", version="0.2.4")
+app = FastAPI(title="Search Answer API", version="0.2.5")
 
 SearchSource = Literal["local", "pubmed", "vector", "hybrid", "pubmed_hybrid", "all"]
 

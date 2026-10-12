@@ -122,3 +122,22 @@ python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --o
 
 结果包括检索结果数量、主题词匹配、JSON 完整性、引用有效率、摘要证据覆盖率、响应时间
 和调用成本。当前不调用大模型，成本基线为 0。
+
+## 阶段 8：轻量证据知识图谱
+
+`app/knowledge_graph.py` 提供 `build_evidence_graph()` 和 `write_graph_json()`。输入必须是
+`StructuredEvidence` 列表，推荐直接使用 `/evidence` 返回的记录转换后的 Pydantic 对象。
+图谱只生成 `Paper`、`Method`、`Disease` 和 `Dataset` 四类节点；每条关系携带 PMID、
+`evidence_id`、`source_section`、原文 `evidence_text` 和来源链接。
+
+示例：
+
+```python
+from app.knowledge_graph import build_evidence_graph, write_graph_json
+
+graph = build_evidence_graph(records)
+write_graph_json(graph, "artifacts/evidence_graph.json")
+```
+
+`null` 或摘要未报告字段不会生成关系。实现使用 JSON 和 Pydantic，不新增第三方依赖，
+也不部署 Neo4j；后续可在此基础上增加可视化或图检索。

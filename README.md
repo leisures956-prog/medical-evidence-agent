@@ -2,15 +2,16 @@
 
 ## 当前状态
 
-当前版本：v0.2.4（引用验证与固定评测阶段）
+当前版本：v0.2.5（轻量证据知识图谱阶段）
 
 - 已实现：PubMed 富元数据检索、医学文档结构、Embedding/混合检索框架、LLM 接口与引用编号检查。
 - 已实现：`/evidence` 摘要级证据接口、PMID/标题/摘要原文片段追踪和严格证据校验。
 - 已实现：`/compare` 多文献比较接口，并标记校正文章、综述文章和摘要缺失。
 - 已实现：证据级引用校验、`[n:evidence_id]` 精确引用格式和 12 条固定评测问题。
-- 已验证：40 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
+- 已实现：从结构化证据生成轻量 JSON 知识图谱，保留 PMID、来源位置和原文片段。
+- 已验证：45 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
 - 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
-- 待开发：轻量知识图谱、LangGraph 流程编排和最终 GitHub 展示。
+- 待开发：LangGraph 流程编排和最终 GitHub 展示。
 
 引用检查现在可以把每个引用绑定到具体 PMID、标题/摘要片段和 `evidence_id`；它仍然不替代医学事实真伪判断。
 
@@ -196,6 +197,32 @@ python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --o
 评测会记录：召回成功率、主题词匹配率、JSON 完整率、引用有效率、摘要证据覆盖率、
 平均响应时间、模型调用次数和估计成本。`metadata_only` 基线不会调用大模型，因此
 `llm_calls` 和成本为 0，摘要证据覆盖率为 0 是预期基线，不代表程序报错。
+
+## 轻量证据知识图谱
+
+`app/knowledge_graph.py` 只接受已经通过结构校验的 `StructuredEvidence`，不会从未验证的
+自由文本猜测实体。当前包含四类节点：
+
+- `Paper`：以 PMID 为唯一标识，并保留 PubMed 链接；
+- `Method`：摘要中明确报告的方法；
+- `Disease`：摘要中明确报告的疾病；
+- `Dataset`：摘要中明确报告的数据集。
+
+论文与方法、疾病、数据集之间的每条关系都保留 `pmid`、`evidence_id`、
+`source_section`、`evidence_text` 和 `source_url`。摘要未提及的字段不会创建节点或关系，
+因此图谱不会把 `null` 当作事实。当前使用纯 JSON，不需要安装 NetworkX 或 Neo4j：
+
+```python
+from app.knowledge_graph import build_evidence_graph, write_graph_json
+
+# records 应来自 /evidence 的结构化结果，或 EvidenceExtractor.extract() 的结果列表
+graph = build_evidence_graph(records)
+write_graph_json(graph, "artifacts/evidence_graph.json")
+print(graph.paper_count, graph.relation_count)
+```
+
+输出文件可以直接作为 GitHub 展示样例或后续可视化的输入。它是证据图谱，不是完整医学知识图谱；
+当前不做全文推断、实体链接、Neo4j 部署或 GraphRAG。
 
 PubMed 连接使用 NCBI E-utilities 的 ESearch 和 ESummary。NCBI 建议在程序化访问时提供联系邮箱；可以在 PowerShell 中设置：
 
