@@ -16,6 +16,7 @@
 - `/health`：健康检查
 - `/search`：本地 JSON 文档检索，或检索 PubMed
 - `/search` 的 `source` 还支持 `vector`，用于本地 Embedding 向量检索
+- `/search` 的 `source` 支持 `pubmed_hybrid`，先召回 PubMed 文献，再使用关键词 + 向量排序
 - `/answer`：根据检索结果返回带来源编号的回答
 - 本地文档从 `data/documents.json` 读取，不再写死在 Python 文件里
 - PubMed 请求带超时、HTTP 异常处理和自动化测试
@@ -70,6 +71,19 @@ PubMed 搜索：
   "source": "pubmed"
 }
 ```
+
+PubMed 混合排序：
+
+```json
+{
+  "query": "lung cancer immunotherapy",
+  "limit": 5,
+  "candidate_limit": 30,
+  "source": "pubmed_hybrid"
+}
+```
+
+`hybrid` 继续只表示本地文档混合检索；`pubmed_hybrid` 才表示 PubMed 候选文献的混合排序。
 
 本地向量检索需要先安装可选依赖：
 

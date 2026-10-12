@@ -16,13 +16,14 @@ from app.search import (
 
 app = FastAPI(title="Search Answer API", version="0.2.0")
 
-SearchSource = Literal["local", "pubmed", "vector", "hybrid", "all"]
+SearchSource = Literal["local", "pubmed", "vector", "hybrid", "pubmed_hybrid", "all"]
 
 
 class SearchRequest(BaseModel):
     query: str = Field(min_length=1, max_length=200)
     limit: int = Field(default=5, ge=1, le=20)
     source: SearchSource = "local"
+    candidate_limit: int = Field(default=30, ge=1, le=50)
 
 
 class AnswerRequest(BaseModel):
@@ -30,6 +31,7 @@ class AnswerRequest(BaseModel):
     top_k: int = Field(default=3, ge=1, le=10)
     source: SearchSource = "local"
     mode: Literal["extractive", "llm"] = "extractive"
+    candidate_limit: int = Field(default=30, ge=1, le=50)
 
 
 class SearchResult(BaseModel):
@@ -74,9 +76,15 @@ def _serialize_hit(hit: SearchHit) -> SearchResult:
     return SearchResult(**asdict(hit))
 
 
-def _run_search(service: SearchService, query: str, limit: int, source: SearchSource):
+def _run_search(
+    service: SearchService,
+    query: str,
+    limit: int,
+    source: SearchSource,
+    candidate_limit: int = 30,
+):
     try:
-        return service.search(query, limit, source)
+        return service.search(query, limit, source, candidate_limit=candidate_limit)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except ExternalServiceError as exc:
@@ -95,7 +103,13 @@ def search(
     request: SearchRequest,
     service: SearchService = Depends(get_search_service),
 ):
-    results, total = _run_search(service, request.query, request.limit, request.source)
+    results, total = _run_search(
+        service,
+        request.query,
+        request.limit,
+        request.source,
+        request.candidate_limit,
+    )
     return {
         "results": [_serialize_hit(item) for item in results],
         "total": total,
@@ -108,7 +122,13 @@ def answer(
     request: AnswerRequest,
     service: SearchService = Depends(get_search_service),
 ):
-    results, _ = _run_search(service, request.question, request.top_k, request.source)
+    results, _ = _run_search(
+        service,
+        request.question,
+        request.top_k,
+        request.source,
+        request.candidate_limit,
+    )
     sources = [_serialize_hit(item) for item in results]
 
     if not results:

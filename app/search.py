@@ -235,10 +235,12 @@ class SearchService:
         document_store: DocumentStore | None = None,
         pubmed_client: PubMedClient | None = None,
         vector_index: LocalVectorIndex | None = None,
+        pubmed_hybrid_retriever=None,
     ):
         self.documents = (document_store or DocumentStore()).load()
         self.pubmed_client = pubmed_client or RichPubMedAdapter()
         self.vector_index = vector_index or LocalVectorIndex(self.documents)
+        self.pubmed_hybrid_retriever = pubmed_hybrid_retriever
 
     def _search_local(self, query: str, limit: int) -> list[SearchHit]:
         terms = _tokens(query)
@@ -265,7 +267,13 @@ class SearchService:
         results.sort(key=lambda item: item.score, reverse=True)
         return results[:limit]
 
-    def search(self, query: str, limit: int, source: str = "local") -> tuple[list[SearchHit], int]:
+    def search(
+        self,
+        query: str,
+        limit: int,
+        source: str = "local",
+        candidate_limit: int = 30,
+    ) -> tuple[list[SearchHit], int]:
         normalized_source = getattr(source, "value", source)
         normalized_source = str(normalized_source).lower()
         if not query.strip():
@@ -282,8 +290,37 @@ class SearchService:
                 raise VectorSearchError(str(exc)) from exc
             results = [document_hit(hit.document, hit.score) for hit in hits]
             return results, len(results)
-        if normalized_source not in {"local", "pubmed", "vector", "all"}:
-            raise ValueError("source 必须是 local、pubmed、vector 或 all。")
+        if normalized_source == "pubmed_hybrid":
+            if not 20 <= candidate_limit <= 50:
+                raise ValueError("candidate_limit 必须在 20 到 50 之间。")
+            from app.pubmed_hybrid import (
+                PubMedHybridEmbeddingError,
+                PubMedHybridError,
+                PubMedHybridRetriever,
+            )
+
+            if self.pubmed_hybrid_retriever is None:
+                self.pubmed_hybrid_retriever = PubMedHybridRetriever()
+            try:
+                hits = self.pubmed_hybrid_retriever.search(
+                    query,
+                    candidate_limit=candidate_limit,
+                    top_k=limit,
+                )
+            except PubMedHybridEmbeddingError as exc:
+                raise VectorSearchError(str(exc)) from exc
+            except PubMedHybridError as exc:
+                raise ExternalServiceError(str(exc)) from exc
+            results = [
+                document_hit(hit.document, hit.score)
+                for hit in hits
+            ]
+            return results, len(results)
+
+        if normalized_source not in {"local", "pubmed", "vector", "hybrid", "all"}:
+            raise ValueError(
+                "source 必须是 local、pubmed、vector、hybrid、pubmed_hybrid 或 all。"
+            )
 
         if not query.strip():
             raise ValueError("query 不能为空")

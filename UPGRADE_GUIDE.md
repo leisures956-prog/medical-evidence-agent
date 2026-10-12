@@ -25,6 +25,12 @@ PubMed（不需要 Embedding 模型）：
 ```
 检查 content 摘要、authors、year、doi、journal 和 url。部分文章没有摘要或 DOI，这是允许的。
 
+PubMed 混合排序（需要本地 Embedding 依赖和模型）：
+```json
+{"query":"lung cancer immunotherapy","limit":5,"candidate_limit":30,"source":"pubmed_hybrid"}
+```
+它先从 PubMed 召回候选文献，再使用现有的关键词 + 向量排序。`hybrid` 仍然只表示本地文档混合检索。
+
 本地混合检索（需要本地 Embedding 依赖和模型）：
 ```json
 {"query":"Python lists","limit":3,"source":"hybrid"}
