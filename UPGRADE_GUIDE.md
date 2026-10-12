@@ -101,3 +101,24 @@ requirements-next-stage.txt 是补充依赖，不替代 requirements.txt。
 返回的 `comparison_table` 保留每篇文献的 PMID、标题、检索分数、结构化证据和文章标记。
 其中 `correction`、`review` 和 `abstract_missing` 分别用于提示校正/撤稿相关标题、
 综述标题和没有摘要的文献。它们只是质量提示，不会改变检索排序。
+
+## 阶段 5～7：引用验证与固定评测
+
+引用验证支持两种形式：
+
+```text
+[1]
+[1:finding-1]
+```
+
+当一个来源对应多个证据片段时，必须指定具体的 `evidence_id`。校验结果会保留 PMID、
+标题/摘要来源、原文片段和来源链接。它只检查可追溯性，不自动判断医学结论是否真实。
+
+固定评测问题在 `data/evaluation_questions.json` 中，共 12 条。运行：
+
+```powershell
+python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --output evaluation_results.json
+```
+
+结果包括检索结果数量、主题词匹配、JSON 完整性、引用有效率、摘要证据覆盖率、响应时间
+和调用成本。当前不调用大模型，成本基线为 0。

@@ -37,6 +37,7 @@ class GroundedAnswer(BaseModel):
     answer: str
     sources: list[MedicalDocument]
     citations: list[int] = Field(default_factory=list)
+    citation_bindings: list[CitationBinding] = Field(default_factory=list)
 
 
 EvidenceSection = Literal["title", "abstract"]
@@ -131,6 +132,26 @@ class EvidenceResponse(BaseModel):
     retrieval_method: Literal["pubmed_hybrid"] = "pubmed_hybrid"
     extraction_mode: Literal["metadata_only", "strict_llm"]
     records: list[StructuredEvidence] = Field(default_factory=list)
+
+
+class CitationBinding(BaseModel):
+    """The exact evidence span attached to one answer citation."""
+
+    citation_number: int = Field(ge=1)
+    pmid: str = Field(min_length=1)
+    evidence_id: str = Field(min_length=1)
+    source_section: EvidenceSection
+    exact_text: str = Field(min_length=1)
+    source_url: str = Field(min_length=1)
+
+
+class CitationValidation(BaseModel):
+    """Traceability result for citations found in a generated answer."""
+
+    valid: bool
+    citations: list[int] = Field(default_factory=list)
+    bindings: list[CitationBinding] = Field(default_factory=list)
+    errors: list[str] = Field(default_factory=list)
 
 
 class ArticleMarkers(BaseModel):

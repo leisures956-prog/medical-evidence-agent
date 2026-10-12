@@ -2,16 +2,17 @@
 
 ## 当前状态
 
-当前版本：v0.2.3（文献比较阶段）
+当前版本：v0.2.4（引用验证与固定评测阶段）
 
 - 已实现：PubMed 富元数据检索、医学文档结构、Embedding/混合检索框架、LLM 接口与引用编号检查。
 - 已实现：`/evidence` 摘要级证据接口、PMID/标题/摘要原文片段追踪和严格证据校验。
 - 已实现：`/compare` 多文献比较接口，并标记校正文章、综述文章和摘要缺失。
-- 已验证：32 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
+- 已实现：证据级引用校验、`[n:evidence_id]` 精确引用格式和 12 条固定评测问题。
+- 已验证：40 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
 - 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
-- 待开发：LangGraph 流程编排、检索与回答质量评测。
+- 待开发：轻量知识图谱、LangGraph 流程编排和最终 GitHub 展示。
 
-引用检查目前仅验证来源编号是否有效，不验证文献是否支持每个结论。
+引用检查现在可以把每个引用绑定到具体 PMID、标题/摘要片段和 `evidence_id`；它仍然不替代医学事实真伪判断。
 
 这是一个用于学习“检索增强问答（RAG）”的 FastAPI 项目。当前版本先完成稳定的基础层：
 
@@ -161,6 +162,40 @@ python -m pip install -r requirements-rag.txt
 
 这些标记是透明的标题启发式和摘要是否存在检查，不会改变原有 `pubmed_hybrid` 分数，
 也不会改变本地 `hybrid` 的含义。摘要缺失或未提及的比较字段仍然返回 `null`。
+
+## 引用验证
+
+基础引用格式是 `[1]`。当一个来源只有一个证据片段时，系统可以自动绑定该片段；
+当一个来源有多个片段时，必须使用精确格式：
+
+```text
+研究结果得到改善。[1:finding-1]
+```
+
+引用绑定结果会保留：
+
+- `citation_number`
+- `pmid`
+- `evidence_id`
+- `source_section`
+- `exact_text`
+- `source_url`
+
+`citation_check_node` 和 `GroundedAnswerer(..., evidence_records=...)` 都会拒绝越界引用、
+不存在的 `evidence_id`，以及无法唯一定位证据片段的 `[n]`。
+
+## 固定评测
+
+固定问题保存在 `data/evaluation_questions.json`，当前包含 12 个医学检索问题。
+在已经配置 PubMed 和 Embedding 环境的 PowerShell 中运行：
+
+```powershell
+python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --output evaluation_results.json
+```
+
+评测会记录：召回成功率、主题词匹配率、JSON 完整率、引用有效率、摘要证据覆盖率、
+平均响应时间、模型调用次数和估计成本。`metadata_only` 基线不会调用大模型，因此
+`llm_calls` 和成本为 0，摘要证据覆盖率为 0 是预期基线，不代表程序报错。
 
 PubMed 连接使用 NCBI E-utilities 的 ESearch 和 ESummary。NCBI 建议在程序化访问时提供联系邮箱；可以在 PowerShell 中设置：
 
