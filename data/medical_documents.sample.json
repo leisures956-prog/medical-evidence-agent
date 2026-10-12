@@ -1,0 +1,19 @@
+[
+  {
+    "id": "sample:medical-001",
+    "source": "sample",
+    "title": "Replace this record with a PubMed result",
+    "abstract": "This is a schema example, not a clinical conclusion.",
+    "authors": ["Example Author"],
+    "year": 2026,
+    "doi": null,
+    "journal": "Example Journal",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "keywords": ["medical evidence", "retrieval"],
+    "metadata": {
+      "pmid": null,
+      "is_sample": true,
+      "retrieved_at": null
+    }
+  }
+]

@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.conda/
+.git/
+.env
+Dockerfile_folder_backup/

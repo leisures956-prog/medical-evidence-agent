@@ -1,0 +1,5 @@
+# Keep the existing FastAPI requirements as well.
+httpx
+pydantic>=2
+numpy
+sentence-transformers

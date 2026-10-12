@@ -1,0 +1,23 @@
+[
+  {
+    "id": "doc-1",
+    "title": "Python 列表",
+    "content": "Python 列表是一种有序、可变的数据结构。",
+    "source": "local",
+    "url": null
+  },
+  {
+    "id": "doc-2",
+    "title": "Python 切片",
+    "content": "Python 切片使用开始下标和结束下标，结束下标不包含在结果中。",
+    "source": "local",
+    "url": null
+  },
+  {
+    "id": "doc-3",
+    "title": "FastAPI",
+    "content": "FastAPI 可以快速构建现代 Python Web API。",
+    "source": "local",
+    "url": null
+  }
+]
