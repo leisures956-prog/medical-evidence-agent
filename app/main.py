@@ -14,10 +14,11 @@ from app.search import (
     medical_document,
 )
 from app.evidence_extractor import EvidenceExtractionError, EvidenceExtractor
-from app.medical_models import EvidenceResponse
+from app.comparison import build_comparison
+from app.medical_models import CompareResponse, EvidenceResponse
 
 
-app = FastAPI(title="Search Answer API", version="0.2.2")
+app = FastAPI(title="Search Answer API", version="0.2.3")
 
 SearchSource = Literal["local", "pubmed", "vector", "hybrid", "pubmed_hybrid", "all"]
 
@@ -40,6 +41,13 @@ class AnswerRequest(BaseModel):
 class EvidenceRequest(BaseModel):
     question: str = Field(min_length=1, max_length=300)
     top_k: int = Field(default=1, ge=1, le=3)
+    candidate_limit: int = Field(default=30, ge=20, le=50)
+    mode: Literal["metadata_only", "strict_llm"] = "metadata_only"
+
+
+class CompareRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=300)
+    top_k: int = Field(default=3, ge=2, le=5)
     candidate_limit: int = Field(default=30, ge=20, le=50)
     mode: Literal["metadata_only", "strict_llm"] = "metadata_only"
 
@@ -210,3 +218,36 @@ def evidence(
         "extraction_mode": request.mode,
         "records": records,
     }
+
+
+@app.post("/compare", response_model=CompareResponse)
+def compare(
+    request: CompareRequest,
+    service: SearchService = Depends(get_search_service),
+):
+    """Compare several PubMed records while preserving article-level markers."""
+
+    results, _ = _run_search(
+        service,
+        request.question,
+        request.top_k,
+        "pubmed_hybrid",
+        request.candidate_limit,
+    )
+
+    if request.mode == "strict_llm":
+        from app.grounded_llm import OpenAICompatibleProvider
+
+        extractor = EvidenceExtractor(provider=OpenAICompatibleProvider())
+    else:
+        extractor = EvidenceExtractor()
+
+    try:
+        return build_comparison(
+            question=request.question,
+            results=results,
+            extractor=extractor,
+            mode=request.mode,
+        )
+    except EvidenceExtractionError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc

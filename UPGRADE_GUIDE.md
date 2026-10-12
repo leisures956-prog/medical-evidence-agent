@@ -84,3 +84,20 @@ requirements-next-stage.txt 是补充依赖，不替代 requirements.txt。
 配置大模型后，可把 `mode` 改为 `strict_llm`。该模式会拒绝非法 JSON、PMID 不匹配、
 引用不存在片段或 `exact_text` 不在标题/摘要中的结果。当前“严格”指来源可追溯，
 不代表自动完成医学事实真伪判定。
+
+## 阶段 4：文献比较
+
+展开 POST `/compare`，可比较 2～5 篇 PubMed 文献：
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "top_k": 3,
+  "candidate_limit": 30,
+  "mode": "metadata_only"
+}
+```
+
+返回的 `comparison_table` 保留每篇文献的 PMID、标题、检索分数、结构化证据和文章标记。
+其中 `correction`、`review` 和 `abstract_missing` 分别用于提示校正/撤稿相关标题、
+综述标题和没有摘要的文献。它们只是质量提示，不会改变检索排序。

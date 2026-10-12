@@ -46,6 +46,7 @@ EvidenceStatus = Literal[
     "abstract_unavailable",
     "extraction_failed",
 ]
+ArticleFlag = Literal["correction", "review", "abstract_missing"]
 
 
 class EvidenceSpan(BaseModel):
@@ -130,3 +131,32 @@ class EvidenceResponse(BaseModel):
     retrieval_method: Literal["pubmed_hybrid"] = "pubmed_hybrid"
     extraction_mode: Literal["metadata_only", "strict_llm"]
     records: list[StructuredEvidence] = Field(default_factory=list)
+
+
+class ArticleMarkers(BaseModel):
+    """Transparent article-quality markers used by the comparison endpoint."""
+
+    flags: list[ArticleFlag] = Field(default_factory=list)
+    abstract_available: bool
+    classification_method: Literal["title_heuristic_and_abstract_presence"] = (
+        "title_heuristic_and_abstract_presence"
+    )
+
+
+class ComparisonRow(BaseModel):
+    rank: int = Field(ge=1)
+    pmid: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    score: float
+    source_url: str = Field(min_length=1)
+    markers: ArticleMarkers
+    evidence: StructuredEvidence
+
+
+class CompareResponse(BaseModel):
+    question: str
+    retrieval_method: Literal["pubmed_hybrid"] = "pubmed_hybrid"
+    extraction_mode: Literal["metadata_only", "strict_llm"]
+    compared_count: int = Field(ge=0)
+    comparison_table: list[ComparisonRow] = Field(default_factory=list)
+    summary: str

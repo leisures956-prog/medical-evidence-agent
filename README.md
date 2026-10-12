@@ -2,11 +2,12 @@
 
 ## 当前状态
 
-当前版本：v0.2.2（摘要级证据阶段）
+当前版本：v0.2.3（文献比较阶段）
 
 - 已实现：PubMed 富元数据检索、医学文档结构、Embedding/混合检索框架、LLM 接口与引用编号检查。
 - 已实现：`/evidence` 摘要级证据接口、PMID/标题/摘要原文片段追踪和严格证据校验。
-- 已验证：29 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
+- 已实现：`/compare` 多文献比较接口，并标记校正文章、综述文章和摘要缺失。
+- 已验证：32 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
 - 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
 - 待开发：LangGraph 流程编排、检索与回答质量评测。
 
@@ -20,6 +21,7 @@
 - `/search` 的 `source` 支持 `pubmed_hybrid`，先召回 PubMed 文献，再使用关键词 + 向量排序
 - `/answer`：根据检索结果返回带来源编号的回答
 - `/evidence`：PubMed 混合召回后，返回只基于标题/摘要的结构化证据 JSON
+- `/compare`：比较多篇 PubMed 文献，并返回结构化证据和文章质量标记
 - 本地文档从 `data/documents.json` 读取，不再写死在 Python 文件里
 - PubMed 请求带超时、HTTP 异常处理和自动化测试
 
@@ -137,6 +139,28 @@ python -m pip install -r requirements-rag.txt
 `dataset`、`main_findings`、`limitations` 和 `evidence_spans`。摘要未提及的字段返回
 `value: null`，并标记 `not_reported_in_abstract`；没有摘要时标记
 `abstract_unavailable`。当前校验保证可追溯性，不替代医学事实核查。
+
+## 文献比较
+
+`/compare` 默认比较 2～5 篇 PubMed 文献：
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "top_k": 3,
+  "candidate_limit": 30,
+  "mode": "metadata_only"
+}
+```
+
+返回的 `comparison_table` 每行包含 PMID、标题、混合检索分数、结构化证据和 `markers`：
+
+- `correction`：标题包含 Correction、Erratum、Retraction 等校正/撤稿提示；
+- `review`：标题包含 Review、Systematic Review、Meta-analysis 等综述提示；
+- `abstract_missing`：PubMed 没有摘要。
+
+这些标记是透明的标题启发式和摘要是否存在检查，不会改变原有 `pubmed_hybrid` 分数，
+也不会改变本地 `hybrid` 的含义。摘要缺失或未提及的比较字段仍然返回 `null`。
 
 PubMed 连接使用 NCBI E-utilities 的 ESearch 和 ESummary。NCBI 建议在程序化访问时提供联系邮箱；可以在 PowerShell 中设置：
 
