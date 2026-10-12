@@ -11,10 +11,13 @@ from app.search import (
     SearchHit,
     SearchService,
     VectorSearchError,
+    medical_document,
 )
+from app.evidence_extractor import EvidenceExtractionError, EvidenceExtractor
+from app.medical_models import EvidenceResponse
 
 
-app = FastAPI(title="Search Answer API", version="0.2.1")
+app = FastAPI(title="Search Answer API", version="0.2.2")
 
 SearchSource = Literal["local", "pubmed", "vector", "hybrid", "pubmed_hybrid", "all"]
 
@@ -32,6 +35,13 @@ class AnswerRequest(BaseModel):
     source: SearchSource = "local"
     mode: Literal["extractive", "llm"] = "extractive"
     candidate_limit: int = Field(default=30, ge=1, le=50)
+
+
+class EvidenceRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=300)
+    top_k: int = Field(default=1, ge=1, le=3)
+    candidate_limit: int = Field(default=30, ge=20, le=50)
+    mode: Literal["metadata_only", "strict_llm"] = "metadata_only"
 
 
 class SearchResult(BaseModel):
@@ -158,4 +168,45 @@ def answer(
         ),
         "sources": sources,
         "confidence": min(0.99, 0.5 + 0.1 * top_result.score),
+    }
+
+
+@app.post("/evidence", response_model=EvidenceResponse)
+def evidence(
+    request: EvidenceRequest,
+    service: SearchService = Depends(get_search_service),
+):
+    """Retrieve PubMed records and return traceable title/abstract evidence."""
+
+    results, _ = _run_search(
+        service,
+        request.question,
+        request.top_k,
+        "pubmed_hybrid",
+        request.candidate_limit,
+    )
+
+    if request.mode == "strict_llm":
+        from app.grounded_llm import OpenAICompatibleProvider
+
+        extractor = EvidenceExtractor(provider=OpenAICompatibleProvider())
+    else:
+        extractor = EvidenceExtractor()
+
+    try:
+        records = [
+            extractor.extract(
+                medical_document(item),
+                mode=request.mode,
+            )
+            for item in results
+        ]
+    except EvidenceExtractionError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+    return {
+        "question": request.question,
+        "retrieval_method": "pubmed_hybrid",
+        "extraction_mode": request.mode,
+        "records": records,
     }

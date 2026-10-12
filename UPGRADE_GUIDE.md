@@ -62,3 +62,25 @@ $env:PIP_CACHE_DIR = 'D:\ml-cache\pip'
 ```
 requirements-next-stage.txt 是补充依赖，不替代 requirements.txt。
 本次升级不包含 LangGraph，也不自动安装依赖或下载模型。
+
+## 阶段 2：摘要级证据接口
+
+展开 POST `/evidence`，点击 Try it out，先用不需要大模型的安全模式验证流程：
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "top_k": 1,
+  "candidate_limit": 20,
+  "mode": "metadata_only"
+}
+```
+
+接口流程是：PubMed 召回 → `pubmed_hybrid` 混合排序 → 证据结构化。返回结果中的每个
+`evidence_span` 都保留 PMID、`source_section`（`title` 或 `abstract`）、原文
+`exact_text` 和来源链接。摘要没有明确提到的研究对象、方法、数据集、主要发现或局限性，
+不会由程序补造，而是返回 `value: null`。
+
+配置大模型后，可把 `mode` 改为 `strict_llm`。该模式会拒绝非法 JSON、PMID 不匹配、
+引用不存在片段或 `exact_text` 不在标题/摘要中的结果。当前“严格”指来源可追溯，
+不代表自动完成医学事实真伪判定。

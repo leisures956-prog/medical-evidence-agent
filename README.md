@@ -2,10 +2,11 @@
 
 ## 当前状态
 
-当前版本：v0.2.1（PubMed 混合排序阶段）
+当前版本：v0.2.2（摘要级证据阶段）
 
 - 已实现：PubMed 富元数据检索、医学文档结构、Embedding/混合检索框架、LLM 接口与引用编号检查。
-- 已验证：18 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
+- 已实现：`/evidence` 摘要级证据接口、PMID/标题/摘要原文片段追踪和严格证据校验。
+- 已验证：29 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
 - 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
 - 待开发：LangGraph 流程编排、检索与回答质量评测。
 
@@ -18,6 +19,7 @@
 - `/search` 的 `source` 还支持 `vector`，用于本地 Embedding 向量检索
 - `/search` 的 `source` 支持 `pubmed_hybrid`，先召回 PubMed 文献，再使用关键词 + 向量排序
 - `/answer`：根据检索结果返回带来源编号的回答
+- `/evidence`：PubMed 混合召回后，返回只基于标题/摘要的结构化证据 JSON
 - 本地文档从 `data/documents.json` 读取，不再写死在 Python 文件里
 - PubMed 请求带超时、HTTP 异常处理和自动化测试
 
@@ -103,6 +105,38 @@ python -m pip install -r requirements-rag.txt
 ```
 
 如果尚未安装可选依赖，接口会返回 `503`，而不是让整个服务崩溃。
+
+## 摘要级证据
+
+`/evidence` 固定使用 `pubmed_hybrid` 检索。默认 `metadata_only` 模式不调用大模型，
+用于先检查 PMID、标题证据和“摘要未提及”字段：
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "top_k": 1,
+  "candidate_limit": 20,
+  "mode": "metadata_only"
+}
+```
+
+如果已经配置 `LLM_API_KEY` 和 `LLM_MODEL`，可以使用 `strict_llm`。模型只能看到标题和摘要，
+每个非空字段必须绑定 `evidence_ids`，每个 `exact_text` 必须逐字出现在标题或摘要中；
+否则接口会拒绝返回，避免把未验证的推断当成证据。
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "top_k": 1,
+  "candidate_limit": 20,
+  "mode": "strict_llm"
+}
+```
+
+每条记录包含 `pmid`、`source_url`、`title`、`research_object`、`disease`、`method`、
+`dataset`、`main_findings`、`limitations` 和 `evidence_spans`。摘要未提及的字段返回
+`value: null`，并标记 `not_reported_in_abstract`；没有摘要时标记
+`abstract_unavailable`。当前校验保证可追溯性，不替代医学事实核查。
 
 PubMed 连接使用 NCBI E-utilities 的 ESearch 和 ESummary。NCBI 建议在程序化访问时提供联系邮箱；可以在 PowerShell 中设置：
 
