@@ -1,0 +1,14 @@
+{
+  "evaluation_version": "v2.4-citation-evaluation",
+  "mode": "metadata_only",
+  "total_cases": 12,
+  "retrieval_success_rate": 1.0,
+  "topic_match_rate": 1.0,
+  "json_complete_rate": 1.0,
+  "citation_valid_rate": 1.0,
+  "abstract_evidence_coverage": 0.0,
+  "average_latency_ms": 6492.991475000356,
+  "llm_calls": 0,
+  "estimated_cost_usd": 0.0,
+  "interpretation": "metadata_only 只验证标题证据和结构完整性，不调用大模型；摘要证据覆盖率为 0 是预期基线。"
+}

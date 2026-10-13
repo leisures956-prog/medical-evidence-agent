@@ -1,0 +1,69 @@
+{
+  "graph_type": "summary_evidence_graph",
+  "source": "structured_evidence",
+  "nodes": [
+    {
+      "id": "paper:123456",
+      "type": "Paper",
+      "label": "Immunotherapy in lung cancer",
+      "pmid": "123456",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/"
+    },
+    {
+      "id": "method:cohort-study-2b6f742630",
+      "type": "Method",
+      "label": "cohort study",
+      "pmid": null,
+      "source_url": null
+    },
+    {
+      "id": "disease:lung-cancer-03a1fe6b2b",
+      "type": "Disease",
+      "label": "lung cancer",
+      "pmid": null,
+      "source_url": null
+    },
+    {
+      "id": "dataset:public-clinical-dataset-0cd1615829",
+      "type": "Dataset",
+      "label": "public clinical dataset",
+      "pmid": null,
+      "source_url": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:cf8c7be8d592445c",
+      "source": "paper:123456",
+      "target": "method:cohort-study-2b6f742630",
+      "relation": "uses_method",
+      "pmid": "123456",
+      "evidence_id": "method-1",
+      "source_section": "abstract",
+      "evidence_text": "cohort study",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/"
+    },
+    {
+      "id": "edge:7f85e477e1721cfb",
+      "source": "paper:123456",
+      "target": "disease:lung-cancer-03a1fe6b2b",
+      "relation": "studies_disease",
+      "pmid": "123456",
+      "evidence_id": "disease-1",
+      "source_section": "abstract",
+      "evidence_text": "lung cancer",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/"
+    },
+    {
+      "id": "edge:a47fc4965430123d",
+      "source": "paper:123456",
+      "target": "dataset:public-clinical-dataset-0cd1615829",
+      "relation": "uses_dataset",
+      "pmid": "123456",
+      "evidence_id": "dataset-1",
+      "source_section": "abstract",
+      "evidence_text": "public clinical dataset",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "question": "lung cancer immunotherapy",
+  "retrieval_method": "pubmed_hybrid",
+  "extraction_mode": "metadata_only",
+  "compared_count": 2,
+  "comparison_table": [
+    {
+      "rank": 1,
+      "pmid": "123456",
+      "title": "Immunotherapy in lung cancer: a systematic review",
+      "score": 0.91,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/",
+      "markers": {
+        "flags": ["review"],
+        "abstract_available": true,
+        "classification_method": "title_heuristic_and_abstract_presence"
+      },
+      "evidence": {
+        "pmid": "123456",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/",
+        "title": "Immunotherapy in lung cancer: a systematic review",
+        "title_evidence_ids": ["title-1"],
+        "research_object": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "disease": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "method": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "dataset": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "main_findings": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "limitations": {
+          "value": null,
+          "status": "not_reported_in_abstract",
+          "evidence_ids": []
+        },
+        "evidence_spans": [
+          {
+            "evidence_id": "title-1",
+            "pmid": "123456",
+            "source_section": "title",
+            "exact_text": "Immunotherapy in lung cancer: a systematic review",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/",
+            "start": null,
+            "end": null
+          }
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "pmid": "789012",
+      "title": "Correction: Immunotherapy in lung cancer",
+      "score": 0.84,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/789012/",
+      "markers": {
+        "flags": ["correction", "abstract_missing"],
+        "abstract_available": false,
+        "classification_method": "title_heuristic_and_abstract_presence"
+      },
+      "evidence": {
+        "pmid": "789012",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/789012/",
+        "title": "Correction: Immunotherapy in lung cancer",
+        "title_evidence_ids": ["title-1"],
+        "research_object": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "disease": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "method": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "dataset": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "main_findings": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "limitations": {
+          "value": null,
+          "status": "abstract_unavailable",
+          "evidence_ids": []
+        },
+        "evidence_spans": [
+          {
+            "evidence_id": "title-1",
+            "pmid": "789012",
+            "source_section": "title",
+            "exact_text": "Correction: Immunotherapy in lung cancer",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/789012/",
+            "start": null,
+            "end": null
+          }
+        ]
+      }
+    }
+  ],
+  "summary": "本次比较包含 2 篇 PubMed 文献。其中 1 篇被标题启发式标记为校正或撤稿相关文章。其中 1 篇被标题启发式标记为综述类文章。其中 1 篇没有摘要，不能进行摘要级字段比较。当前为 metadata_only 模式；未对摘要做语义字段提取，未明确提及的字段按 null 返回。"
+}

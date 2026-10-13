@@ -141,3 +141,15 @@ write_graph_json(graph, "artifacts/evidence_graph.json")
 
 `null` 或摘要未报告字段不会生成关系。实现使用 JSON 和 Pydantic，不新增第三方依赖，
 也不部署 Neo4j；后续可在此基础上增加可视化或图检索。
+
+## 阶段 9：GitHub 展示材料
+
+README 已整理项目架构 Mermaid 图、启动与测试命令、`/evidence` 和 `/compare` 的 JSON 示例、
+固定评测摘要、知识图谱 JSON/PNG 示例和项目局限性。示例文件位于 `examples/`：
+
+- `evidence_response.json`：摘要级证据接口返回示例；
+- `compare_response.json`：文献比较及校正/综述/摘要缺失标记示例；
+- `evaluation_summary.json`：12 条固定问题的基线评测摘要。
+
+阶段 9 不改变检索、证据提取、引用校验或知识图谱逻辑。GitHub 演示时建议依次打开 `/health`、
+`/search`、`/evidence`、`/compare`，再展示 `artifacts/evidence_graph_visualization.png`。

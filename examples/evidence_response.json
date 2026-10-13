@@ -1,0 +1,54 @@
+{
+  "question": "lung cancer immunotherapy",
+  "retrieval_method": "pubmed_hybrid",
+  "extraction_mode": "metadata_only",
+  "records": [
+    {
+      "pmid": "123456",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/",
+      "title": "Immunotherapy in lung cancer",
+      "title_evidence_ids": ["title-1"],
+      "research_object": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "disease": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "method": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "dataset": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "main_findings": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "limitations": {
+        "value": null,
+        "status": "not_reported_in_abstract",
+        "evidence_ids": []
+      },
+      "evidence_spans": [
+        {
+          "evidence_id": "title-1",
+          "pmid": "123456",
+          "source_section": "title",
+          "exact_text": "Immunotherapy in lung cancer",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/123456/",
+          "start": null,
+          "end": null
+        }
+      ]
+    }
+  ]
+}
