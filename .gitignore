@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 *.egg-info/
 .pytest_cache/
+.pytest_tmp/
 .mypy_cache/
 .ruff_cache/
 
@@ -23,3 +24,6 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated local evaluation output
+evaluation_results.json

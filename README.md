@@ -10,7 +10,7 @@
 - 已实现：证据级引用校验、`[n:evidence_id]` 精确引用格式和 12 条固定评测问题。
 - 已实现：从结构化证据生成轻量 JSON 知识图谱，保留 PMID、来源位置和原文片段。
 - 已完成：项目架构图、接口 JSON 示例、评测摘要和知识图谱可视化展示材料。
-- 已验证：45 个本地自动化测试通过；真实 PubMed 检索成功，能够返回论文标题、摘要、作者和来源链接。
+- 已验证：45 个离线单元测试通过，联网 PubMed 测试默认跳过；真实 PubMed 检索能够返回论文标题、摘要、作者和来源链接。
 - 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
 - 待开发：LangGraph 流程编排；当前项目仍保持轻量、可解释的模块化实现。
 
@@ -73,6 +73,27 @@ conda activate ".\.conda\search_api311"
 python -m pip install -r requirements.txt
 python -m pytest -q
 ```
+
+测试分为两类。默认单元测试完全使用本地数据或 Mock，不访问 PubMed：
+
+```powershell
+python -m pytest -m unit -q
+```
+
+联网测试位于 `tests/integration/`，默认只显示为跳过：
+
+```powershell
+python -m pytest -m integration -q
+```
+
+确认网络和 NCBI 配置后，显式开启联网测试：
+
+```powershell
+$env:RUN_PUBMED_INTEGRATION = "1"
+python -m pytest -m integration -q
+```
+
+pytest 临时目录固定在项目内的 `.pytest_tmp/`，不会再默认写入 C 盘临时目录。
 
 启动开发服务器：
 
@@ -326,6 +347,10 @@ python -m app.evaluation `
 - PubMed 结果和响应时间会随网络、NCBI 服务和 Embedding 模型加载状态变化；
 - 当前知识图谱使用 JSON，不做实体链接、同义词归一化、Neo4j 部署或完整 GraphRAG；
 - 项目用于学习和演示 RAG 工程流程，不替代医生、研究者或正式系统的医学判断。
+
+评测程序生成的 `evaluation_results.json` 是本地原始记录，已加入 `.gitignore`；仓库保留经过说明的
+`examples/evaluation_summary.json`。知识图谱演示 Notebook 位于
+`examples/demo_knowledge_graph.ipynb`，不参与 pytest 测试收集。
 
 PubMed 连接使用 NCBI E-utilities 的 ESearch 和 ESummary。NCBI 建议在程序化访问时提供联系邮箱；可以在 PowerShell 中设置：
 

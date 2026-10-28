@@ -63,6 +63,20 @@ $env:PIP_CACHE_DIR = 'D:\ml-cache\pip'
 requirements-next-stage.txt 是补充依赖，不替代 requirements.txt。
 本次升级不包含 LangGraph，也不自动安装依赖或下载模型。
 
+## 阶段 0：测试与基线规则
+
+项目测试已分为离线单元测试和显式联网集成测试：
+
+```powershell
+python -m pytest -m unit -q
+python -m pytest -m integration -q
+```
+
+`tests/integration/` 中的 PubMed 测试默认跳过；确认网络可用后设置
+`$env:RUN_PUBMED_INTEGRATION = "1"` 再运行。pytest 临时目录使用项目内的 `.pytest_tmp/`，
+避免受系统 C 盘临时目录权限影响。`evaluation_results.json` 保留为本地原始评测输出，
+`tests/test1.ipynb` 已移到 `examples/demo_knowledge_graph.ipynb` 作为演示材料。
+
 ## 阶段 2：摘要级证据接口
 
 展开 POST `/evidence`，点击 Try it out，先用不需要大模型的安全模式验证流程：
