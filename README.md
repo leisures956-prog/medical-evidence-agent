@@ -1,18 +1,31 @@
 # Search Answer API
 
+## 当前交付版本
+
+**Stage 8D 本地可复现版**（基于 `v2.0-baseline` 继续完善）。
+
+本版本以本地运行、证据可追溯和离线测试为目标，不要求安装 Docker、Redis 或部署
+PostgreSQL + pgvector。相关代码可以保留，但不把尚未完成的外部服务部署验证描述成已完成能力。
+
 ## 当前状态
 
-当前版本：v0.2.6（GitHub 展示阶段）
+当前状态：阶段 0～8D 已完成（Docker 部署保持可选）。
 
-- 已实现：PubMed 富元数据检索、医学文档结构、Embedding/混合检索框架、LLM 接口与引用编号检查。
+- 已实现：PubMed 富元数据检索、Embedding、关键词 + 向量混合检索和本地持久化向量索引。
 - 已实现：`/evidence` 摘要级证据接口、PMID/标题/摘要原文片段追踪和严格证据校验。
 - 已实现：`/compare` 多文献比较接口，并标记校正文章、综述文章和摘要缺失。
-- 已实现：证据级引用校验、`[n:evidence_id]` 精确引用格式和 12 条固定评测问题。
-- 已实现：从结构化证据生成轻量 JSON 知识图谱，保留 PMID、来源位置和原文片段。
-- 已完成：项目架构图、接口 JSON 示例、评测摘要和知识图谱可视化展示材料。
-- 已验证：45 个离线单元测试通过，联网 PubMed 测试默认跳过；真实 PubMed 检索能够返回论文标题、摘要、作者和来源链接。
-- 待验证：真实 Embedding 检索效果、真实 LLM 端到端回答。
-- 待开发：LangGraph 流程编排；当前项目仍保持轻量、可解释的模块化实现。
+- 已实现：`/answer` 可追溯回答和独立的 `/agent-answer` LangGraph Agent 接口。
+- 已实现：查询改写、证据充分性判断、回答修复和引用检查的有界 Agent 流程。
+- 已实现：PubMed 超时、有限重试、退避、候选结果缓存、请求 ID 和耗时日志。
+- 已实现：结构化证据知识图谱、评测摘要、Swagger 示例和性能观察记录。
+- 已实现：GitHub Actions 离线 unit 测试工作流和独立的 `api_runtime` 测试分类。
+- 已验证：141 个离线 unit 测试通过；3 个外部 integration 测试默认跳过；35 个 `api_runtime` 测试单独标记。
+- 已验证：Ollama `qwen2.5:3b` 本地回答、引用绑定和拒答流程。
+- 已配置：GitHub Actions 离线 unit 测试工作流；真实 PubMed、Ollama 和数据库服务不在 CI 中自动启动。
+- 当前边界：pgvector 的代码和接口已保留，但本版本不承诺本机 PostgreSQL + pgvector 部署已验证。
+- 当前边界：Docker、Redis 和并发压测暂不纳入本版本交付范围。
+
+当前项目重点是可复现、可追溯和可测试，不把结构化引用检查描述成医学事实真伪判定。
 
 引用检查现在可以把每个引用绑定到具体 PMID、标题/摘要片段和 `evidence_id`；它仍然不替代医学事实真伪判断。
 
@@ -21,6 +34,7 @@
 - `/health`：健康检查
 - `/search`：本地 JSON 文档检索，或检索 PubMed
 - `/search` 的 `source` 还支持 `vector`，用于本地 Embedding 向量检索
+- `/search` 新增 `vector_pg` 和 `hybrid_pg`，用于 PostgreSQL + pgvector 持久化检索
 - `/search` 的 `source` 支持 `pubmed_hybrid`，先召回 PubMed 文献，再使用关键词 + 向量排序
 - `/answer`：根据检索结果返回带来源编号的回答
 - `/evidence`：PubMed 混合召回后，返回只基于标题/摘要的结构化证据 JSON
@@ -71,19 +85,19 @@ conda activate ".\.conda\search_api311"
 
 ```powershell
 python -m pip install -r requirements.txt
-python -m pytest -q
+python -m pip install -r requirements-rag.txt -r requirements-agent.txt
 ```
 
-测试分为两类。默认单元测试完全使用本地数据或 Mock，不访问 PubMed：
+默认 unit 测试完全使用本地数据或 Mock，不访问 PubMed、PostgreSQL 或 Ollama：
 
 ```powershell
-python -m pytest -m unit -q
+python -m pytest -m unit -q -p no:cacheprovider
 ```
 
-联网测试位于 `tests/integration/`，默认只显示为跳过：
+外部 integration 测试位于 `tests/integration/`，默认只显示为跳过：
 
 ```powershell
-python -m pytest -m integration -q
+python -m pytest -m integration -q -p no:cacheprovider
 ```
 
 确认网络和 NCBI 配置后，显式开启联网测试：
@@ -92,6 +106,15 @@ python -m pytest -m integration -q
 $env:RUN_PUBMED_INTEGRATION = "1"
 python -m pytest -m integration -q
 ```
+
+依赖 Starlette `TestClient` 的旧 API 运行测试单独标记为 `api_runtime`：
+
+```powershell
+python -m pytest -m api_runtime -q
+```
+
+这组测试需要兼容的 Starlette/httpx 运行环境；在当前 Windows 环境中默认不纳入离线 unit，
+避免测试客户端阻塞被误认为业务失败。
 
 pytest 临时目录固定在项目内的 `.pytest_tmp/`，不会再默认写入 C 盘临时目录。
 
@@ -138,6 +161,24 @@ PubMed 混合排序：
 
 `hybrid` 继续只表示本地文档混合检索；`pubmed_hybrid` 才表示 PubMed 候选文献的混合排序。
 
+PubMed 请求默认使用有限重试和内存缓存，可在 `.env` 中调整：
+
+```text
+PUBMED_TIMEOUT_SECONDS=15
+PUBMED_MAX_RETRIES=2
+PUBMED_RETRY_BACKOFF_SECONDS=0.25
+PUBMED_CACHE_ENABLED=1
+PUBMED_CACHE_TTL_SECONDS=300
+PUBMED_CACHE_MAX_ENTRIES=128
+PUBMED_HYBRID_CACHE_ENABLED=1
+PUBMED_HYBRID_CACHE_TTL_SECONDS=300
+PUBMED_HYBRID_CACHE_MAX_ENTRIES=128
+```
+
+缓存只保存在当前 API 进程内，重启服务后清空；它不会写入 C 盘或替代正式数据库缓存。
+阶段 8B 的本地观测记录见
+[examples/stage8b_latency_summary.json](examples/stage8b_latency_summary.json)。
+
 本地向量检索需要先安装可选依赖：
 
 ```powershell
@@ -156,6 +197,13 @@ python -m pip install -r requirements-rag.txt
 ```
 
 如果尚未安装可选依赖，接口会返回 `503`，而不是让整个服务崩溃。
+
+### 持久化向量检索（阶段 3）
+
+阶段 3 新增 `vector_pg`（持久化语义检索）和 `hybrid_pg`（关键词 + 持久化向量融合）。
+现有 `vector`、`hybrid` 和 `pubmed_hybrid` 的含义保持不变。数据库启动、快照索引和
+集成测试命令见 [STAGE3_PGVECTOR.md](STAGE3_PGVECTOR.md)。当前版本保留这部分实现，
+但由于本机未固定 PostgreSQL + pgvector 运行环境，部署验证仍属于后续可选工作。
 
 ## 摘要级证据
 
@@ -240,6 +288,36 @@ python -m pip install -r requirements-rag.txt
 `citation_check_node` 和 `GroundedAnswerer(..., evidence_records=...)` 都会拒绝越界引用、
 不存在的 `evidence_id`，以及无法唯一定位证据片段的 `[n]`。
 
+## LangGraph Agent
+
+`/agent-answer` 是独立的 Agent 演示接口，不改变原有 `/answer` 的行为。流程为：
+
+```text
+查询分析
+→ 检索
+→ 证据充分性判断
+→ 必要时查询改写（最多 1 次）
+→ 生成回答
+→ 引用检查
+→ 必要时回答修复（最多 1 次）
+```
+
+请求示例：
+
+```json
+{
+  "question": "lung cancer immunotherapy",
+  "retrieval_method": "pubmed_hybrid",
+  "top_k": 3,
+  "candidate_limit": 20,
+  "metadata": {}
+}
+```
+
+返回结果包括 `status`、`answer`、`citations`、`citation_bindings`、`attempt_count` 和 `trace`。
+`trace` 用于展示每个节点的状态和耗时；`completed`、`abstained`、`failed` 三种状态明确区分
+成功、证据不足和节点失败。Agent 测试使用本地假数据，不依赖 Ollama 或网络。
+
 ## 固定评测
 
 固定问题保存在 `data/evaluation_questions.json`，当前包含 12 个医学检索问题。
@@ -270,6 +348,22 @@ python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --o
 该结果是 `metadata_only` 基线：它只验证标题证据和结构完整性，不调用大模型，因此摘要证据覆盖率为 0
 是预期结果。第一次请求包含 Embedding 模型加载，耗时会明显高于后续请求。完整摘要见
 [examples/evaluation_summary.json](examples/evaluation_summary.json)。
+
+阶段 6.1 还使用 Ollama 运行了 20 条回答与拒答评测：
+
+| 指标 | 结果 |
+| --- | ---: |
+| 评测问题数 | 20 |
+| Citation Precision | 1.000 |
+| Citation Recall | 1.000 |
+| Citation Coverage | 1.000 |
+| Answer Faithfulness（词法代理指标） | 1.000 |
+| Abstention Accuracy | 1.000 |
+| Unsupported Claim Count 平均值 | 0 |
+| Generation Error Cases | 0 |
+
+该结果使用 assistant-draft 标签和词法代理指标，不等同于人工医学金标准或完整的语义蕴含评测；
+原始记录位于 `artifacts/evaluation/answer_eval_v1_stage61_v35_real.json`。
 
 ## 轻量证据知识图谱
 
@@ -317,7 +411,7 @@ python examples/plot_knowledge_graph.py
 ```powershell
 api311
 cd D:\Codex\medical-evidence-agent\python_proj\search_api
-python -m pytest -q
+python -m pytest -m unit -q -p no:cacheprovider
 python -m uvicorn app.main:app --reload
 ```
 
@@ -325,9 +419,13 @@ python -m uvicorn app.main:app --reload
 
 1. `/health`：服务正常；
 2. `/search`：`source="pubmed_hybrid"`，展示 PubMed 检索和混合排序；
-3. `/evidence`：展示 PMID、标题证据和摘要缺失字段；
-4. `/compare`：展示多篇文献比较及校正/综述/摘要缺失标记；
-5. 运行知识图谱示例代码，展示 JSON 和 PNG 输出。
+3. `/agent-answer`：展示 LangGraph 节点轨迹、回答和精确引用；
+4. `/evidence`：展示 PMID、标题证据和摘要缺失字段；
+5. `/compare`：展示多篇文献比较及校正/综述/摘要缺失标记；
+6. 运行知识图谱示例代码，展示 JSON 和 PNG 输出。
+
+性能演示可以对相同的 `/agent-answer` 请求连续调用两次：第一次体现 PubMed/Embedding
+冷启动，第二次体现混合检索和回答缓存。不要把缓存命中后的延迟当成 PubMed 全库检索速度。
 
 固定评测命令：
 
@@ -368,18 +466,38 @@ git add .
 git commit -m "chore: initialize search API project"
 ```
 
-## 后续 RAG 路线
+## 路线完成度与后续工作
 
-建议按以下顺序推进，不要在检索层还不稳定时直接加入 Agent：
+当前主线已经完成：
 
-1. 当前阶段：本地数据源、PubMed 适配器、异常处理和测试。
-2. Embedding 阶段：给文档切块，为每个块保存向量和来源元数据；先用本地 `sentence-transformers`，再接 FAISS 或 Chroma。
-3. RAG 阶段：向量召回 + 关键词召回，合并、去重、重排，并把 `id/title/url` 一起传给回答器。
-4. 大模型阶段：增加一个可替换的 LLM provider；提示词要求只根据检索上下文回答，并用 `[1]`、`[2]` 对应来源。
-5. LangGraph 阶段：把检索、重排、回答、引用检查做成节点，再添加工具调用和重试分支。
+```text
+PubMed 摘要召回
+→ 关键词/向量混合排序
+→ 摘要级证据结构化
+→ 可追溯回答与拒答
+→ 文献比较
+→ 轻量证据知识图谱
+→ LangGraph Agent 编排
+→ 超时、重试、缓存、请求 ID 和测试隔离
+```
 
-Embedding 和大模型需要先确定是使用本地模型，还是 OpenAI 兼容接口；因此不在基础版本里强行下载大型模型或要求 API key。
+阶段 8D 的 GitHub Actions 只运行离线 unit 测试；真实 PubMed、PostgreSQL 和 Ollama 测试继续保持显式开启，
+避免 CI 因外部服务变化而产生不可复现结果。后续如需生产化，可再考虑 Redis、异步 PubMed 客户端、
+更严格的语义蕴含评测和实体链接，但这些不属于当前可复现基线。
+
+### 本版本暂不纳入
+
+- Docker 镜像和 Docker Compose 部署验证；
+- Redis 分布式缓存；
+- PostgreSQL + pgvector 的本机部署验收；
+- 真实外部服务的 GitHub Actions 集成测试；
+- 面向 PubMed 的高并发压测。
+
+这些事项不会影响当前本地 API、Embedding、混合检索、证据结构化、引用检查和 Agent 演示。
+如果后续需要生产化，再单独建立部署环境和验收记录，避免把开发机上的缓存命中或本地运行结果误写成服务端性能指标。
+
+Embedding 和大模型均使用显式配置的本地路径或 OpenAI 兼容接口；项目不会在 API 请求过程中自动下载模型。
 # 升级说明
 
-下一阶段模块已经接入原项目。网页请求示例与配置说明见 [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md)。
+阶段升级模块已经接入原项目。接口请求示例与配置说明见 [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md)。
 

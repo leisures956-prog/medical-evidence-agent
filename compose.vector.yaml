@@ -1,0 +1,22 @@
+# Optional database overlay for stage 3.
+# Start only the database while running the API from the api311 environment:
+#   docker compose -f compose.yaml -f compose.vector.yaml up -d db
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: search
+      POSTGRES_USER: search
+      POSTGRES_PASSWORD: search
+    ports:
+      - "5433:5432"
+    volumes:
+      - search_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U search -d search"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  search_pgdata:

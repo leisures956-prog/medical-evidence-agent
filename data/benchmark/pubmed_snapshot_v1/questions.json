@@ -1,0 +1,105 @@
+{
+  "question_set_version": "questions-v1",
+  "questions": [
+    {
+      "id": "q01",
+      "question": "lung cancer immunotherapy",
+      "required_terms": [
+        "lung cancer",
+        "immunotherapy"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q02",
+      "question": "non-small cell lung cancer targeted therapy",
+      "required_terms": [
+        "lung cancer"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q03",
+      "question": "breast cancer screening",
+      "required_terms": [
+        "breast cancer"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q04",
+      "question": "colorectal cancer immunotherapy",
+      "required_terms": [
+        "colorectal cancer"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q05",
+      "question": "diabetes GLP-1 receptor agonist",
+      "required_terms": [
+        "diabetes"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q06",
+      "question": "hypertension lifestyle intervention",
+      "required_terms": [
+        "hypertension"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q07",
+      "question": "acute ischemic stroke mechanical thrombectomy",
+      "required_terms": [
+        "stroke",
+        "thrombectomy"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q08",
+      "question": "sepsis early diagnosis biomarkers",
+      "required_terms": [
+        "sepsis"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q09",
+      "question": "rheumatoid arthritis biologic therapy",
+      "required_terms": [
+        "rheumatoid arthritis"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q10",
+      "question": "Alzheimer disease biomarkers",
+      "required_terms": [
+        "Alzheimer"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q11",
+      "question": "COVID-19 vaccine efficacy",
+      "required_terms": [
+        "COVID",
+        "vaccine"
+      ],
+      "min_results": 1
+    },
+    {
+      "id": "q12",
+      "question": "chronic kidney disease SGLT2 inhibitors",
+      "required_terms": [
+        "kidney",
+        "SGLT2"
+      ],
+      "min_results": 1
+    }
+  ]
+}

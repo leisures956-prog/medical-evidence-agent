@@ -10,5 +10,8 @@ def pytest_collection_modifyitems(items):
 
     unit_marker = pytest.mark.unit
     for item in items:
-        if "integration" not in item.keywords:
+        if (
+            "integration" not in item.keywords
+            and "api_runtime" not in item.keywords
+        ):
             item.add_marker(unit_marker)

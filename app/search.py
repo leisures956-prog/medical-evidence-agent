@@ -9,6 +9,8 @@ from typing import Any
 
 import httpx
 
+from app.metadata_filter import RetrievalFilters
+
 
 class ExternalServiceError(RuntimeError):
     """Raised when an external evidence provider cannot be reached or parsed."""
@@ -236,11 +238,83 @@ class SearchService:
         pubmed_client: PubMedClient | None = None,
         vector_index: LocalVectorIndex | None = None,
         pubmed_hybrid_retriever=None,
+        local_persistent_vector_retriever=None,
+        local_persistent_hybrid_retriever=None,
+        quality_reranker=None,
+        cross_encoder_reranker=None,
+        multi_query_retriever=None,
+        persistent_vector_retriever=None,
+        persistent_hybrid_retriever=None,
     ):
         self.documents = (document_store or DocumentStore()).load()
         self.pubmed_client = pubmed_client or RichPubMedAdapter()
         self.vector_index = vector_index or LocalVectorIndex(self.documents)
         self.pubmed_hybrid_retriever = pubmed_hybrid_retriever
+        self.local_persistent_vector_retriever = local_persistent_vector_retriever
+        self.local_persistent_hybrid_retriever = local_persistent_hybrid_retriever
+        self.quality_reranker = quality_reranker
+        self.cross_encoder_reranker = cross_encoder_reranker
+        self.multi_query_retriever = multi_query_retriever
+        self.persistent_vector_retriever = persistent_vector_retriever
+        self.persistent_hybrid_retriever = persistent_hybrid_retriever
+
+    def _get_local_persistent_vector_retriever(self):
+        if self.local_persistent_vector_retriever is None:
+            from app.persistent_retriever import LocalPersistentVectorRetriever
+
+            self.local_persistent_vector_retriever = (
+                LocalPersistentVectorRetriever.from_env()
+            )
+        return self.local_persistent_vector_retriever
+
+    def _get_local_persistent_hybrid_retriever(self):
+        if self.local_persistent_hybrid_retriever is None:
+            from app.persistent_retriever import LocalPersistentHybridRetriever
+
+            self.local_persistent_hybrid_retriever = LocalPersistentHybridRetriever(
+                self._get_local_persistent_vector_retriever()
+            )
+        return self.local_persistent_hybrid_retriever
+
+    def _get_quality_reranker(self):
+        if self.quality_reranker is None:
+            from app.quality_reranker import QualityReranker
+
+            self.quality_reranker = QualityReranker()
+        return self.quality_reranker
+
+    def _get_cross_encoder_reranker(self):
+        if self.cross_encoder_reranker is None:
+            from app.cross_encoder_reranker import CrossEncoderReranker
+
+            self.cross_encoder_reranker = CrossEncoderReranker()
+        return self.cross_encoder_reranker
+
+    def _get_multi_query_retriever(self):
+        if self.multi_query_retriever is None:
+            from app.multi_query_retriever import MultiQueryRetriever
+
+            self.multi_query_retriever = MultiQueryRetriever(
+                self._get_local_persistent_hybrid_retriever(),
+                self._get_cross_encoder_reranker(),
+            )
+        return self.multi_query_retriever
+
+    def _get_persistent_vector_retriever(self):
+        if self.persistent_vector_retriever is None:
+            from app.pgvector_retriever import PersistentVectorRetriever
+
+            self.persistent_vector_retriever = PersistentVectorRetriever.from_env()
+        return self.persistent_vector_retriever
+
+    def _get_persistent_hybrid_retriever(self):
+        if self.persistent_hybrid_retriever is None:
+            from app.pgvector_retriever import PersistentHybridRetriever
+
+            self.persistent_hybrid_retriever = PersistentHybridRetriever(
+                self._get_persistent_vector_retriever()
+            )
+        return self.persistent_hybrid_retriever
 
     def _search_local(self, query: str, limit: int) -> list[SearchHit]:
         terms = _tokens(query)
@@ -273,9 +347,12 @@ class SearchService:
         limit: int,
         source: str = "local",
         candidate_limit: int = 30,
+        filters: RetrievalFilters | None = None,
     ) -> tuple[list[SearchHit], int]:
         normalized_source = getattr(source, "value", source)
         normalized_source = str(normalized_source).lower()
+        if filters is not None and filters.is_active and normalized_source != "advanced_persisted":
+            raise ValueError("filters 目前只支持 source=advanced_persisted。")
         if not query.strip():
             raise ValueError("query 不能为空")
         if normalized_source == "hybrid":
@@ -317,9 +394,117 @@ class SearchService:
             ]
             return results, len(results)
 
-        if normalized_source not in {"local", "pubmed", "vector", "hybrid", "all"}:
+        if normalized_source in {
+            "vector_persisted",
+            "hybrid_persisted",
+            "hybrid_persisted_reranked",
+            "hybrid_persisted_cross_reranked",
+            "hybrid_persisted_cross_quality_reranked",
+            "advanced_persisted",
+        }:
+            try:
+                if normalized_source == "vector_persisted":
+                    hits = self._get_local_persistent_vector_retriever().search(
+                        query, top_k=limit
+                    )
+                elif normalized_source == "hybrid_persisted":
+                    hits = self._get_local_persistent_hybrid_retriever().search(
+                        query, top_k=limit
+                    )
+                elif normalized_source == "hybrid_persisted_reranked":
+                    base_hits = self._get_local_persistent_hybrid_retriever().search(
+                        query, top_k=max(limit * 5, 30)
+                    )
+                    hits = self._get_quality_reranker().rerank(
+                        base_hits, top_k=limit
+                    )
+                elif normalized_source == "hybrid_persisted_cross_reranked":
+                    base_hits = self._get_local_persistent_hybrid_retriever().search(
+                        query, top_k=max(limit * 5, 30)
+                    )
+                    hits = self._get_cross_encoder_reranker().rerank(
+                        query,
+                        base_hits,
+                        top_k=limit,
+                    )
+                elif normalized_source == "hybrid_persisted_cross_quality_reranked":
+                    base_hits = self._get_local_persistent_hybrid_retriever().search(
+                        query, top_k=max(limit * 5, 30)
+                    )
+                    hits = self._get_cross_encoder_reranker().rerank_with_quality(
+                        query,
+                        base_hits,
+                        top_k=limit,
+                    )
+                else:
+                    hits = self._get_multi_query_retriever().search(
+                        query,
+                        top_k=limit,
+                        candidate_limit=max(limit, candidate_limit),
+                        filters=filters,
+                    )
+            except Exception as exc:
+                from app.cross_encoder_reranker import CrossEncoderRerankerError
+                from app.local_vector_store import LocalVectorStoreError
+                from app.persistent_retriever import PersistentEmbeddingError
+
+                if isinstance(
+                    exc,
+                    (
+                        CrossEncoderRerankerError,
+                        LocalVectorStoreError,
+                        PersistentEmbeddingError,
+                    ),
+                ):
+                    raise VectorSearchError(str(exc)) from exc
+                raise
+            results = [document_hit(hit.document, hit.score) for hit in hits]
+            return results, len(results)
+
+        if normalized_source in {"vector_pg", "hybrid_pg"}:
+            try:
+                if normalized_source == "vector_pg":
+                    hits = self._get_persistent_vector_retriever().search(
+                        query, top_k=limit
+                    )
+                else:
+                    hits = self._get_persistent_hybrid_retriever().search(
+                        query, top_k=limit
+                    )
+            except Exception as exc:
+                # Keep optional database/model failures behind the same API
+                # error type as the existing local vector mode.
+                from app.pgvector_store import PgVectorError
+
+                if isinstance(exc, PgVectorError):
+                    raise VectorSearchError(str(exc)) from exc
+                raise
+            results = [document_hit(hit.document, hit.score) for hit in hits]
+            return results, len(results)
+
+        if normalized_source not in {
+            "local",
+            "pubmed",
+            "vector",
+            "hybrid",
+            "vector_persisted",
+            "hybrid_persisted",
+            "hybrid_persisted_reranked",
+            "hybrid_persisted_cross_reranked",
+            "hybrid_persisted_cross_quality_reranked",
+            "advanced_persisted",
+            "vector_pg",
+            "hybrid_pg",
+            "all",
+        }:
             raise ValueError(
-                "source 必须是 local、pubmed、vector、hybrid、pubmed_hybrid 或 all。"
+                "source 必须是 local、pubmed、vector、hybrid、"
+                "vector_persisted、hybrid_persisted、"
+                "hybrid_persisted_reranked、"
+                "hybrid_persisted_cross_reranked、"
+                "hybrid_persisted_cross_quality_reranked、"
+                "advanced_persisted、vector_pg、"
+                "hybrid_pg、pubmed_hybrid 或 all。"
             )
 
         if not query.strip():

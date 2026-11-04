@@ -1,0 +1,28 @@
+{
+  "corpus_version": "pubmed-snapshot-v1",
+  "annotation_version": "labels-v1",
+  "source": "PubMed E-utilities",
+  "created_at": "2026-10-29T02:02:49+00:00",
+  "fetched_at": "2026-10-29T02:02:49+00:00",
+  "question_count": 12,
+  "question_ids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q06",
+    "q07",
+    "q08",
+    "q09",
+    "q10",
+    "q11",
+    "q12"
+  ],
+  "candidate_limit_per_question": 20,
+  "document_count": 233,
+  "hash_algorithm": "sha256",
+  "hash_input": "normalized_title + newline + normalized_abstract",
+  "coverage_scope": "candidate_pool_only",
+  "pool_definition": "Union of the frozen PubMed candidate pools; labels cover only the candidate pool returned for each question."
+}

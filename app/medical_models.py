@@ -33,11 +33,39 @@ class RetrievalHit(BaseModel):
     keyword_score: float | None = None
 
 
+class LLMUsage(BaseModel):
+    """Token counters reported by an OpenAI-compatible provider."""
+
+    input_tokens: int | None = Field(default=None, ge=0)
+    output_tokens: int | None = Field(default=None, ge=0)
+    total_tokens: int | None = Field(default=None, ge=0)
+
+
+class AnswerQuality(BaseModel):
+    """Deterministic structural checks; semantic faithfulness is evaluated separately."""
+
+    valid: bool
+    claim_count: int = Field(ge=0)
+    cited_claim_count: int = Field(ge=0)
+    citation_coverage: float = Field(ge=0, le=1)
+    uncited_claims: list[str] = Field(default_factory=list)
+    warnings: list[str] = Field(default_factory=list)
+
+
 class GroundedAnswer(BaseModel):
     answer: str
     sources: list[MedicalDocument]
     citations: list[int] = Field(default_factory=list)
     citation_bindings: list[CitationBinding] = Field(default_factory=list)
+    abstained: bool = False
+    abstention_reason: str | None = None
+    model: str | None = None
+    prompt_version: str = "grounded-answer-v3.5"
+    usage: LLMUsage = Field(default_factory=LLMUsage)
+    estimated_cost_usd: float = Field(default=0.0, ge=0)
+    latency_ms: float = Field(default=0.0, ge=0)
+    cache_hit: bool = False
+    quality: AnswerQuality | None = None
 
 
 EvidenceSection = Literal["title", "abstract"]

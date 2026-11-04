@@ -1,0 +1,1377 @@
+{
+  "evaluation_version": "answer-eval-v1-fixed-context-2",
+  "annotation_status": "assistant_draft_not_human_gold",
+  "corpus_version": "pubmed-snapshot-v1",
+  "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+  "scope": "Fixed-context generation pilot: 20 questions, 3 papers; not retrieval accuracy. Genuine conflicting-evidence cases are not covered yet.",
+  "cases": [
+    {
+      "id": "a01",
+      "question": "What study design and age range were reported?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "retrospective",
+            "3 months",
+            "14 years"
+          ],
+          "allowed_pmids": [
+            "42856985"
+          ],
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a02",
+      "question": "How many children were included and underwent POC lactate testing?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "149",
+            "90"
+          ],
+          "allowed_pmids": [
+            "42856985"
+          ],
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a03",
+      "question": "What was elevated POC lactate associated with?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "PICU",
+            "ventilation"
+          ],
+          "allowed_pmids": [
+            "42856985"
+          ],
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a04",
+      "question": "What AUC values were reported for PICU admission and mortality?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "0.641",
+            "0.544"
+          ],
+          "allowed_pmids": [
+            "42856985"
+          ],
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a05",
+      "question": "How many CAP plasma samples were studied in each culture group?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856925"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Community-acquired pneumonia (CAP) remains a major cause of morbidity and mortality worldwide, particularly among young children and older adults."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Bacterial pathogens account for a substantial proportion of CAP cases, yet early identification of bacteremia and etiologic agents remains challenging."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Blood cultures are slow and often have a limited clinical impact."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "We hypothesized that plasma metabolomics can capture systemic metabolic signatures associated with blood culture positivity and bacterial etiology at the time of hospital admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Multivariate and univariate analyses were applied to identify discriminating metabolic features."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: Distinct metabolic phenotypes were observed between culture-positive and culture-negative patients across all platforms."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "OPLS-DA models demonstrated significant discrimination, with GC-MS and 1H-NMR showing strong internally cross-validated discriminatory performance (Q2 > 0.45, AUROC > 0.90)."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Plasma metabolomics identified distinct systemic metabolic patterns associated with blood culture positivity and, in exploratory analysis, with S. pneumoniae etiology."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "80",
+            "40"
+          ],
+          "allowed_pmids": [
+            "42856925"
+          ],
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a06",
+      "question": "Which platforms were used for metabolomic profiling?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856925"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Community-acquired pneumonia (CAP) remains a major cause of morbidity and mortality worldwide, particularly among young children and older adults."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Bacterial pathogens account for a substantial proportion of CAP cases, yet early identification of bacteremia and etiologic agents remains challenging."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Blood cultures are slow and often have a limited clinical impact."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "We hypothesized that plasma metabolomics can capture systemic metabolic signatures associated with blood culture positivity and bacterial etiology at the time of hospital admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Multivariate and univariate analyses were applied to identify discriminating metabolic features."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: Distinct metabolic phenotypes were observed between culture-positive and culture-negative patients across all platforms."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "OPLS-DA models demonstrated significant discrimination, with GC-MS and 1H-NMR showing strong internally cross-validated discriminatory performance (Q2 > 0.45, AUROC > 0.90)."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Plasma metabolomics identified distinct systemic metabolic patterns associated with blood culture positivity and, in exploratory analysis, with S. pneumoniae etiology."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "1H-NMR",
+            "GC-MS",
+            "LC-DIMS/MS"
+          ],
+          "allowed_pmids": [
+            "42856925"
+          ],
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a07",
+      "question": "Which metabolites increased in culture-positive CAP?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856925"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Community-acquired pneumonia (CAP) remains a major cause of morbidity and mortality worldwide, particularly among young children and older adults."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Bacterial pathogens account for a substantial proportion of CAP cases, yet early identification of bacteremia and etiologic agents remains challenging."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Blood cultures are slow and often have a limited clinical impact."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "We hypothesized that plasma metabolomics can capture systemic metabolic signatures associated with blood culture positivity and bacterial etiology at the time of hospital admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Multivariate and univariate analyses were applied to identify discriminating metabolic features."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: Distinct metabolic phenotypes were observed between culture-positive and culture-negative patients across all platforms."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "OPLS-DA models demonstrated significant discrimination, with GC-MS and 1H-NMR showing strong internally cross-validated discriminatory performance (Q2 > 0.45, AUROC > 0.90)."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Plasma metabolomics identified distinct systemic metabolic patterns associated with blood culture positivity and, in exploratory analysis, with S. pneumoniae etiology."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "phenylalanine",
+            "urea",
+            "mannose"
+          ],
+          "allowed_pmids": [
+            "42856925"
+          ],
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a08",
+      "question": "What further validation did the CAP abstract recommend?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42856925"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Community-acquired pneumonia (CAP) remains a major cause of morbidity and mortality worldwide, particularly among young children and older adults."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Bacterial pathogens account for a substantial proportion of CAP cases, yet early identification of bacteremia and etiologic agents remains challenging."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Blood cultures are slow and often have a limited clinical impact."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "We hypothesized that plasma metabolomics can capture systemic metabolic signatures associated with blood culture positivity and bacterial etiology at the time of hospital admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Multivariate and univariate analyses were applied to identify discriminating metabolic features."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: Distinct metabolic phenotypes were observed between culture-positive and culture-negative patients across all platforms."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "OPLS-DA models demonstrated significant discrimination, with GC-MS and 1H-NMR showing strong internally cross-validated discriminatory performance (Q2 > 0.45, AUROC > 0.90)."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Plasma metabolomics identified distinct systemic metabolic patterns associated with blood culture positivity and, in exploratory analysis, with S. pneumoniae etiology."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "validation",
+            "independent",
+            "CAP"
+          ],
+          "allowed_pmids": [
+            "42856925"
+          ],
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a09",
+      "question": "What design was used in the Canadian vaccine perception study?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42832932"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "OBJECTIVE: Vaccination has been scientifically proven to be safe and to prevent infectious diseases."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine has been crucial in combating the pandemic."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "In Canada, despite widespread vaccine hesitancy, little has specifically addressed older adults from racialized communities."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine effectiveness was tested with t-tests, ANOVA, and multivariable linear regression."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Participants 65 years and above reported significantly greater perceived COVID-19 vaccine effectiveness versus 55-64 years old (t(579) = 2.17, p = .015))."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Asian and White participants were more likely to have a good perception of COVID-19 vaccines versus Black and Indigenous (F(6,574) = 2.88, p = .009) participants."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Perceptions of COVID-19 vaccine effectiveness among 55+ in Canada varied substantially across racial groups, with differences linked to experiences of discrimination and literacy levels."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "These findings highlight the need for targeted, equity-oriented public health strategies that address both structural racism and misinformation to improve vaccine confidence among older adults in marginalized communities."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "cross-sectional",
+            "Canadian"
+          ],
+          "allowed_pmids": [
+            "42832932"
+          ],
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a10",
+      "question": "How and when were data collected for the vaccine perception study?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42832932"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "OBJECTIVE: Vaccination has been scientifically proven to be safe and to prevent infectious diseases."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine has been crucial in combating the pandemic."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "In Canada, despite widespread vaccine hesitancy, little has specifically addressed older adults from racialized communities."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine effectiveness was tested with t-tests, ANOVA, and multivariable linear regression."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Participants 65 years and above reported significantly greater perceived COVID-19 vaccine effectiveness versus 55-64 years old (t(579) = 2.17, p = .015))."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Asian and White participants were more likely to have a good perception of COVID-19 vaccines versus Black and Indigenous (F(6,574) = 2.88, p = .009) participants."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Perceptions of COVID-19 vaccine effectiveness among 55+ in Canada varied substantially across racial groups, with differences linked to experiences of discrimination and literacy levels."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "These findings highlight the need for targeted, equity-oriented public health strategies that address both structural racism and misinformation to improve vaccine confidence among older adults in marginalized communities."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "Web",
+            "March",
+            "2025"
+          ],
+          "allowed_pmids": [
+            "42832932"
+          ],
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a11",
+      "question": "How many participants were included in the vaccine perception study?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42832932"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "OBJECTIVE: Vaccination has been scientifically proven to be safe and to prevent infectious diseases."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine has been crucial in combating the pandemic."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "In Canada, despite widespread vaccine hesitancy, little has specifically addressed older adults from racialized communities."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine effectiveness was tested with t-tests, ANOVA, and multivariable linear regression."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Participants 65 years and above reported significantly greater perceived COVID-19 vaccine effectiveness versus 55-64 years old (t(579) = 2.17, p = .015))."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Asian and White participants were more likely to have a good perception of COVID-19 vaccines versus Black and Indigenous (F(6,574) = 2.88, p = .009) participants."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Perceptions of COVID-19 vaccine effectiveness among 55+ in Canada varied substantially across racial groups, with differences linked to experiences of discrimination and literacy levels."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "These findings highlight the need for targeted, equity-oriented public health strategies that address both structural racism and misinformation to improve vaccine confidence among older adults in marginalized communities."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "581"
+          ],
+          "allowed_pmids": [
+            "42832932"
+          ],
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a12",
+      "question": "Did the study investigate vaccine perceptions or measured clinical protection?",
+      "scenario": "answerable",
+      "expected_behavior": "answer",
+      "context_pmids": [
+        "42832932"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "OBJECTIVE: Vaccination has been scientifically proven to be safe and to prevent infectious diseases."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine has been crucial in combating the pandemic."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "In Canada, despite widespread vaccine hesitancy, little has specifically addressed older adults from racialized communities."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine effectiveness was tested with t-tests, ANOVA, and multivariable linear regression."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Participants 65 years and above reported significantly greater perceived COVID-19 vaccine effectiveness versus 55-64 years old (t(579) = 2.17, p = .015))."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Asian and White participants were more likely to have a good perception of COVID-19 vaccines versus Black and Indigenous (F(6,574) = 2.88, p = .009) participants."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Perceptions of COVID-19 vaccine effectiveness among 55+ in Canada varied substantially across racial groups, with differences linked to experiences of discrimination and literacy levels."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "These findings highlight the need for targeted, equity-oriented public health strategies that address both structural racism and misinformation to improve vaccine confidence among older adults in marginalized communities."
+        }
+      ],
+      "expected_claims": [
+        {
+          "id": "c1",
+          "support_terms": [
+            "perceptions",
+            "effectiveness"
+          ],
+          "allowed_pmids": [
+            "42832932"
+          ],
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        }
+      ],
+      "notes": "Assistant-drafted reference; lexical proxy only, requires human semantic review."
+    },
+    {
+      "id": "a13",
+      "question": "What were the five-year mortality outcomes in this pediatric cohort?",
+      "scenario": "insufficient",
+      "expected_behavior": "abstain",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "notes": "Requested detail is absent from this abstract. A qualified not-reported answer needs human review; the current API abstained flag is scored separately."
+    },
+    {
+      "id": "a14",
+      "question": "Which antibiotic dose was administered to each child?",
+      "scenario": "insufficient",
+      "expected_behavior": "abstain",
+      "context_pmids": [
+        "42856985"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Lactate is a key biomarker in the assessment of sepsis, reflecting tissue hypoperfusion and correlating with disease severity and outcomes."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "However, reliance on standard laboratory testing may delay clinical decision-making in time-sensitive situations."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Point-of-care (POC) lactate testing provides rapid bedside assessment, potentially facilitating earlier risk stratification and intervention."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "This study aimed to evaluate the predictive value of POC lactate for pediatric intensive care unit (PICU) admission and mortality in pediatric patients with sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "METHODS: This was a retrospective observational study of children aged 3 months to 14 years presenting to the pediatric emergency department in a tertiary care children's hospital with a diagnosis of sepsis."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Data were extracted from electronic medical records."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: A total of 149 pediatric patients with sepsis were included, of whom 90 underwent POC lactate testing."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate levels were observed in 38.9% of tested patients."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Elevated POC lactate was significantly associated with PICU admission, as well as the need for mechanical ventilation and inotropic support."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Receiver operating characteristic (ROC) analysis demonstrated modest but statistically significant predictive performance for PICU admission (AUC = 0.641), whereas no predictive value was observed for mortality (AUC = 0.544)."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Point-of-care lactate may serve as a practical supplementary biomarker that can facilitate early risk stratification by identifying children with sepsis at increased risk of PICU admission and requiring advanced interventions."
+        },
+        {
+          "pmid": "42856985",
+          "source_section": "abstract",
+          "exact_text": "Nevertheless, its modest discriminatory performance necessitates interpretation in conjunction with clinical assessment and additional biomarkers rather than as an independent predictor of sepsis severity."
+        }
+      ],
+      "notes": "Requested detail is absent from this abstract. A qualified not-reported answer needs human review; the current API abstained flag is scored separately."
+    },
+    {
+      "id": "a15",
+      "question": "What were the patient-level genomic sequences in the CAP cohort?",
+      "scenario": "insufficient",
+      "expected_behavior": "abstain",
+      "context_pmids": [
+        "42856925"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "INTRODUCTION: Community-acquired pneumonia (CAP) remains a major cause of morbidity and mortality worldwide, particularly among young children and older adults."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Bacterial pathogens account for a substantial proportion of CAP cases, yet early identification of bacteremia and etiologic agents remains challenging."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Blood cultures are slow and often have a limited clinical impact."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "We hypothesized that plasma metabolomics can capture systemic metabolic signatures associated with blood culture positivity and bacterial etiology at the time of hospital admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Plasma samples from 80 patients with bacterial CAP (40 culture-positive and 40 age- and sex-matched culture-negative) were collected on the first day of admission."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Metabolomic profiling was performed using complementary platforms, including untargeted 1H-NMR, GC-MS, and targeted LC-DIMS/MS."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Multivariate and univariate analyses were applied to identify discriminating metabolic features."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: Distinct metabolic phenotypes were observed between culture-positive and culture-negative patients across all platforms."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "OPLS-DA models demonstrated significant discrimination, with GC-MS and 1H-NMR showing strong internally cross-validated discriminatory performance (Q2 > 0.45, AUROC > 0.90)."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "Culture-positive CAP was characterized by increased phenylalanine, urea, and mannose, alongside decreased amino acids and fatty acids, indicating coordinated alterations in nitrogen metabolism, energy pathways, and lipid remodeling."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Plasma metabolomics identified distinct systemic metabolic patterns associated with blood culture positivity and, in exploratory analysis, with S. pneumoniae etiology."
+        },
+        {
+          "pmid": "42856925",
+          "source_section": "abstract",
+          "exact_text": "These discovery-stage findings demonstrate reproducible systemic metabolic patterns associated with blood culture positivity and bacterial etiology and support further validation of targeted metabolite signatures in independent CAP cohorts."
+        }
+      ],
+      "notes": "Requested detail is absent from this abstract. A qualified not-reported answer needs human review; the current API abstained flag is scored separately."
+    },
+    {
+      "id": "a16",
+      "question": "What exact vaccine batch numbers were administered to survey participants?",
+      "scenario": "insufficient",
+      "expected_behavior": "abstain",
+      "context_pmids": [
+        "42832932"
+      ],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "OBJECTIVE: Vaccination has been scientifically proven to be safe and to prevent infectious diseases."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine has been crucial in combating the pandemic."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "In Canada, despite widespread vaccine hesitancy, little has specifically addressed older adults from racialized communities."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "This study investigates perceptions of COVID-19 vaccine effectiveness among older adults by racial background, examining the influence of major racial discrimination and health literacy."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "STUDY DESIGN: A cross-sectional pan-Canadian study."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "METHODS: Data were collected using Computer-Assisted Web Interviewing (March 2025)."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "The COVID-19 vaccine effectiveness was tested with t-tests, ANOVA, and multivariable linear regression."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "RESULTS: 581 participants were included: Arab (11.5%), Asian (15.8%), Black (16.2%), Indigenous (9%), and White (35.8%); including men (48.2%), women (43.0%), and 8.8% identifying as non-binary."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Participants 65 years and above reported significantly greater perceived COVID-19 vaccine effectiveness versus 55-64 years old (t(579) = 2.17, p = .015))."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "Asian and White participants were more likely to have a good perception of COVID-19 vaccines versus Black and Indigenous (F(6,574) = 2.88, p = .009) participants."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "CONCLUSIONS: Perceptions of COVID-19 vaccine effectiveness among 55+ in Canada varied substantially across racial groups, with differences linked to experiences of discrimination and literacy levels."
+        },
+        {
+          "pmid": "42832932",
+          "source_section": "abstract",
+          "exact_text": "These findings highlight the need for targeted, equity-oriented public health strategies that address both structural racism and misinformation to improve vaccine confidence among older adults in marginalized communities."
+        }
+      ],
+      "notes": "Requested detail is absent from this abstract. A qualified not-reported answer needs human review; the current API abstained flag is scored separately."
+    },
+    {
+      "id": "a17",
+      "question": "What result is supported when no documents are supplied?",
+      "scenario": "no_answer",
+      "expected_behavior": "abstain",
+      "context_pmids": [],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [],
+      "notes": "Controlled empty-context test, not absence from PubMed."
+    },
+    {
+      "id": "a18",
+      "question": "What dosage can be established from an empty evidence context?",
+      "scenario": "no_answer",
+      "expected_behavior": "abstain",
+      "context_pmids": [],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [],
+      "notes": "Controlled empty-context test, not absence from PubMed."
+    },
+    {
+      "id": "a19",
+      "question": "What survival estimate is available with no retrieved evidence?",
+      "scenario": "no_answer",
+      "expected_behavior": "abstain",
+      "context_pmids": [],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [],
+      "notes": "Controlled empty-context test, not absence from PubMed."
+    },
+    {
+      "id": "a20",
+      "question": "What patient diagnosis is supported with no retrieved evidence?",
+      "scenario": "no_answer",
+      "expected_behavior": "abstain",
+      "context_pmids": [],
+      "corpus_sha256": "2284012259e8294c7235aa984b9ce9d2041d6dd385436226c4390bb411d75df6",
+      "reference_spans": [],
+      "notes": "Controlled empty-context test, not absence from PubMed."
+    }
+  ]
+}

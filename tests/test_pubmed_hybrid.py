@@ -1,4 +1,5 @@
 import httpx
+import pytest
 
 from app.main import app, get_search_service
 from app.medical_models import MedicalDocument, RetrievalHit
@@ -6,6 +7,9 @@ from app.pubmed_hybrid import PubMedHybridRetriever
 from app.pubmed_client_v2 import PubMedClientV2
 from app.search import SearchService
 from fastapi.testclient import TestClient
+
+
+pytestmark = pytest.mark.api_runtime
 
 
 class FakePubMedClient:

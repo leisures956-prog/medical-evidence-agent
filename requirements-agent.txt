@@ -1,0 +1,2 @@
+# Stage 7C: bounded LangGraph orchestration on top of the existing agent nodes.
+langgraph>=1.2,<2

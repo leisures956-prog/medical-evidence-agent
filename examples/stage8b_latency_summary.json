@@ -1,0 +1,29 @@
+{
+  "benchmark_version": "stage8b-observed-v1",
+  "query": "lung cancer immunotherapy",
+  "request": {
+    "retrieval_method": "pubmed_hybrid",
+    "top_k": 3,
+    "candidate_limit": 20
+  },
+  "environment": {
+    "llm": "Ollama qwen2.5:3b",
+    "cache_type": "in-memory PubMed/hybrid cache plus project LLM response cache"
+  },
+  "observations": {
+    "pre_cache_agent_total_ms": 2790,
+    "pre_cache_retrieval_ms": 2713.735,
+    "pre_cache_answer_ms": 8.305,
+    "pre_cache_answer_cache_hit": true,
+    "warm_repeat_1_retrieval_ms": 0.282,
+    "warm_repeat_2_retrieval_ms": 0.397,
+    "warm_repeat_1_answer_ms": 1.054,
+    "warm_repeat_2_answer_ms": 1.898
+  },
+  "interpretation": "The observed warm requests reused the PubMed hybrid result and were substantially faster; the answer cache was also hit.",
+  "limitations": [
+    "These are local observed timings, not a controlled benchmark.",
+    "Cold-start time depends on PubMed network latency and embedding model loading.",
+    "The result does not measure full PubMed-corpus recall."
+  ]
+}

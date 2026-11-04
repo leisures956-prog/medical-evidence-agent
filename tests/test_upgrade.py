@@ -9,6 +9,9 @@ from app.medical_models import MedicalDocument, RetrievalHit
 from test_next_stage import PUBMED_XML
 
 
+pytestmark = pytest.mark.api_runtime
+
+
 def test_pubmed_metadata_reaches_api():
     def handler(request):
         if request.url.path.endswith('esearch.fcgi'):

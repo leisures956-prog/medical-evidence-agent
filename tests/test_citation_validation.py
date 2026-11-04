@@ -117,6 +117,19 @@ class Provider:
         return self.answer_text
 
 
+class RepairingProvider:
+    def __init__(self):
+        self.calls = 0
+        self.messages = []
+
+    def complete(self, messages):
+        self.calls += 1
+        self.messages.append(messages)
+        if self.calls == 1:
+            return "The finding is supported [1:evidence_id]."
+        return "The finding is supported [1:finding-1]."
+
+
 def test_grounded_answerer_rejects_unbound_source_level_citation():
     hit = RetrievalHit(
         document=MedicalDocument(
@@ -153,4 +166,152 @@ def test_grounded_answerer_returns_explicit_citation_binding():
     )
 
     assert result.citations == [1]
+    assert result.citation_bindings[0].evidence_id == "finding-1"
+
+
+def test_grounded_answerer_repairs_literal_evidence_id_with_allowed_list():
+    hit = RetrievalHit(
+        document=MedicalDocument(
+            id="pubmed:123456",
+            title="Example evidence",
+            abstract="The intervention improved survival.",
+        ),
+        score=0.9,
+        retrieval_method="pubmed_hybrid",
+    )
+    provider = RepairingProvider()
+
+    result = GroundedAnswerer(provider, max_citation_repairs=1).answer(
+        "question",
+        [hit],
+        evidence_records=[make_record(with_abstract_span=True)],
+    )
+
+    assert provider.calls == 2
+    assert result.citation_bindings[0].evidence_id == "finding-1"
+    system_prompt = provider.messages[0][0]["content"]
+    user_prompt = provider.messages[0][1]["content"]
+    repair_prompt = provider.messages[1][-1]["content"]
+    assert "[1:finding-1]" in user_prompt
+    assert "[1:title-1]" not in user_prompt.split("Allowed citations:", 1)[1]
+    assert "Never output the placeholder evidence_id" in system_prompt
+    assert "Allowed citations:" in repair_prompt
+
+
+def test_grounded_answerer_turns_not_reported_response_into_abstention():
+    hit = RetrievalHit(
+        document=MedicalDocument(
+            id="pubmed:123456",
+            title="Example evidence",
+            abstract="The study describes the cohort but not antibiotic dosing.",
+        ),
+        score=0.9,
+        retrieval_method="pubmed_hybrid",
+    )
+    result = GroundedAnswerer(
+        Provider("The study did not specify the antibiotic dose [1:abstract-1].")
+    ).answer(
+        "What dose was used?",
+        [hit],
+        evidence_records=[make_record(with_abstract_span=True)],
+    )
+
+    assert result.abstained is True
+    assert result.abstention_reason == "not_reported_in_abstract"
+    assert result.citations == []
+    assert result.citation_bindings == []
+
+
+def test_grounded_answerer_does_not_accept_auc_refusal_when_auc_is_in_abstract():
+    class RepairProvider:
+        def __init__(self):
+            self.calls = 0
+
+        def complete(self, messages):
+            self.calls += 1
+            if self.calls == 1:
+                return "The abstract does not report the AUC value for PICU admission."
+            return (
+                "PICU admission had predictive performance (AUC = 0.641), whereas "
+                "no predictive value was observed for mortality (AUC = 0.544) "
+                "[1:finding-1]."
+            )
+
+    hit = RetrievalHit(
+        document=MedicalDocument(
+            id="pubmed:123456",
+            title="Example evidence",
+            abstract="PICU admission AUC = 0.641; mortality AUC = 0.544.",
+        ),
+        score=0.9,
+        retrieval_method="pubmed_hybrid",
+    )
+    record = make_record(with_abstract_span=True)
+    record.evidence_spans[-1].exact_text = (
+        "PICU admission had predictive performance (AUC = 0.641), whereas "
+        "no predictive value was observed for mortality (AUC = 0.544)."
+    )
+    result = GroundedAnswerer(RepairProvider(), max_citation_repairs=1).answer(
+        "What AUC values were reported for PICU admission and mortality?",
+        [hit],
+        evidence_records=[record],
+    )
+    assert result.abstained is False
+    assert "0.641" in result.answer
+    assert "0.544" in result.answer
+
+
+def test_requested_group_count_in_abstract_is_not_accepted_as_refusal():
+    record = make_record(with_abstract_span=True)
+    record.evidence_spans[-1].exact_text = (
+        "Plasma samples from 80 patients with bacterial CAP (40 culture-positive "
+        "and 40 age- and sex-matched culture-negative) were collected."
+    )
+    assert GroundedAnswerer._has_explicit_requested_detail(
+        "How many CAP plasma samples were studied in each culture group?",
+        [record],
+    )
+    assert not GroundedAnswerer._has_explicit_requested_detail(
+        "What were the five-year mortality outcomes in this pediatric cohort?",
+        [record],
+    )
+    assert GroundedAnswerer._missing_requested_numbers(
+        "How many CAP plasma samples were studied in each culture group?",
+        "40 culture-positive and 40 culture-negative",
+        [record],
+    ) is True
+    assert GroundedAnswerer._missing_requested_numbers(
+        "How many CAP plasma samples were studied in each culture group?",
+        "80 total; 40 culture-positive and 40 culture-negative",
+        [record],
+    ) is False
+
+
+def test_evidence_fallback_returns_auc_span_after_repeated_bad_generation():
+    class BadProvider:
+        def complete(self, messages):
+            return "The abstract does not report the AUC value for PICU admission."
+
+    record = make_record(with_abstract_span=True)
+    record.evidence_spans[-1].exact_text = (
+        "PICU admission had predictive performance (AUC = 0.641), whereas "
+        "no predictive value was observed for mortality (AUC = 0.544)."
+    )
+    hit = RetrievalHit(
+        document=MedicalDocument(
+            id="pubmed:123456",
+            title="Example evidence",
+            abstract=record.evidence_spans[-1].exact_text,
+        ),
+        score=0.9,
+        retrieval_method="pubmed_hybrid",
+    )
+    result = GroundedAnswerer(BadProvider(), max_citation_repairs=1).answer(
+        "What AUC values were reported for PICU admission and mortality?",
+        [hit],
+        evidence_records=[record],
+    )
+    assert result.abstained is False
+    assert "0.641" in result.answer
+    assert "0.544" in result.answer
     assert result.citation_bindings[0].evidence_id == "finding-1"

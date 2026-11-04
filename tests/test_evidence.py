@@ -16,6 +16,9 @@ from app.medical_models import (
 from app.search import SearchService
 
 
+pytestmark = pytest.mark.api_runtime
+
+
 def make_document() -> MedicalDocument:
     return MedicalDocument(
         id="pubmed:123456",

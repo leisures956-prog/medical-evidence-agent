@@ -1,8 +1,12 @@
 import httpx
+import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app, get_search_service
 from app.search import PubMedClient, SearchHit, SearchService
+
+
+pytestmark = pytest.mark.api_runtime
 
 
 client = TestClient(app)

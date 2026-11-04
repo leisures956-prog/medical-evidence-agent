@@ -1,0 +1,2167 @@
+{
+  "annotation_version": "labels-v1",
+  "corpus_version": "pubmed-snapshot-v1",
+  "coverage_scope": "candidate_pool_only",
+  "labels": [
+    {
+      "question_id": "q01",
+      "pmid": "42943387",
+      "relevance": 1,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42945595",
+      "relevance": 2,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42945719",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42945901",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42946197",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42946420",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42946431",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42946442",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42946742",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42947053",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42947476",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42947483",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42947988",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42948095",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42948149",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42948407",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42948574",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42949119",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42949492",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q01",
+      "pmid": "42950185",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42930035",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42930174",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42930180",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42933231",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42934326",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42934945",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42935484",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42935491",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42936912",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42937295",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42937553",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42939986",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42943200",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42943298",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42946197",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42946280",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42946717",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42947053",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42947476",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q02",
+      "pmid": "42947483",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947051",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947077",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947139",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947206",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947222",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947285",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947695",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947815",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42947913",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42948037",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42948040",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42948127",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949009",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949306",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949310",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949447",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949448",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949538",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42949989",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q03",
+      "pmid": "42950178",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42928952",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42929781",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42930589",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42932566",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42934339",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42934437",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42934650",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42934708",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42936178",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42936374",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42936394",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42937547",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42937556",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42941537",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42943387",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42945790",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42946672",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42946787",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42947100",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q04",
+      "pmid": "42949048",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42942386",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42942883",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42943198",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42943304",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42944684",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42944687",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42945255",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946058",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946127",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946163",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946897",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946946",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42946972",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42947001",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42947668",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42947790",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42948670",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42948675",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42948780",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q05",
+      "pmid": "42949133",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42925888",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42925956",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42926177",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42926804",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42926912",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42927090",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42927366",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42928121",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42928248",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42928683",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42930746",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42930873",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42932894",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42934499",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42936172",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42942478",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42943015",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42943027",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42948938",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q06",
+      "pmid": "42949988",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42908683",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42909051",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42909268",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42911883",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42912716",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42918432",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42922436",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42924239",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42924336",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42927926",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42929656",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42930904",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42931493",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42934823",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42937744",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42939379",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42941648",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42942463",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42948306",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q07",
+      "pmid": "42948832",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42856925",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42856985",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42857835",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42861732",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42864623",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42865282",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42871829",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42872518",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42873459",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42876180",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42882086",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42891121",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42892907",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42908649",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42913750",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42913868",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42923755",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42932226",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42942070",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q08",
+      "pmid": "42942533",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42897005",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42898420",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42898659",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42898959",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42899094",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42900335",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42902419",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42905343",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42908796",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42910477",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42919621",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42923538",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42928923",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42933792",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42938291",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42941691",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42943347",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42944787",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42946382",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q09",
+      "pmid": "42947615",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42942335",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42942573",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42943696",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42943736",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42946915",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947225",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947251",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947278",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947286",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947582",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947905",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42947971",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948155",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948157",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948355",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948713",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948807",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42948835",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42949022",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q10",
+      "pmid": "42949229",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42807221",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42832932",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42842944",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42862067",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42869874",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42869875",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42872797",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42872814",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42874153",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42879706",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42891992",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42909463",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42931376",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42931381",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42931403",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42931424",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42933996",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42935532",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42944012",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q11",
+      "pmid": "42944387",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42923500",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42925318",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42925557",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42925875",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42926181",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42930014",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42932136",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42932779",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42934514",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42935015",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42935670",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42935909",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42935914",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42936265",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42940159",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42941948",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42942386",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42942469",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42942503",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    },
+    {
+      "question_id": "q12",
+      "pmid": "42944684",
+      "relevance": null,
+      "coverage_scope": "candidate_pool_only",
+      "annotation_version": "labels-v1",
+      "annotator": null,
+      "notes": ""
+    }
+  ]
+}

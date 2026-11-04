@@ -1,0 +1,640 @@
+{
+  "benchmark": "keyword-baseline-v1",
+  "corpus_version": "pubmed-snapshot-v1",
+  "annotation_version": "labels-v1",
+  "coverage_scope": "candidate_pool_only",
+  "candidate_scope": "question_pool",
+  "metric_note": "Recall/MRR/nDCG 只在完整标注的候选池上计算，不代表 PubMed 全库召回率。",
+  "total_cases": 12,
+  "completed_cases": 12,
+  "incomplete_cases": 0,
+  "metrics": {
+    "recall": {
+      "@1": 0.045218,
+      "@3": 0.156488,
+      "@5": 0.26741
+    },
+    "ndcg": {
+      "@1": 0.666667,
+      "@3": 0.700962,
+      "@5": 0.717225
+    },
+    "mrr": 0.902778,
+    "no_result_rate": 0.0,
+    "average_latency_ms": 1.559833
+  },
+  "cases": [
+    {
+      "question_id": "q01",
+      "question": "lung cancer immunotherapy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.836,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42943387",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42945595",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42945901",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42946197",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42946420",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.0625,
+          "@3": 0.1875,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 0.3333333333333333,
+          "@3": 0.5307212739772436,
+          "@5": 0.5296347172140421
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q02",
+      "question": "non-small cell lung cancer targeted therapy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.707,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42930180",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42935491",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42937295",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42939986",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42943298",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05555555555555555,
+          "@3": 0.16666666666666666,
+          "@5": 0.2777777777777778
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 1.0,
+          "@5": 0.9125299483251055
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q03",
+      "question": "breast cancer screening",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.651,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42947285",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42947815",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42948037",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42949310",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42950178",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.0,
+          "@3": 0.125,
+          "@5": 0.375
+        },
+        "ndcg": {
+          "@1": 0.0,
+          "@3": 0.07821312100379275,
+          "@5": 0.36579635424202195
+        },
+        "mrr": 0.3333333333333333,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q04",
+      "question": "colorectal cancer immunotherapy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.449,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42928952",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42929781",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42930589",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42932566",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42934339",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05263157894736842,
+          "@3": 0.15789473684210525,
+          "@5": 0.2631578947368421
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 0.8026120593560899,
+          "@5": 0.8573424901769816
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q05",
+      "question": "diabetes GLP-1 receptor agonist",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.664,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42946163",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42946946",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42946972",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42947668",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42948780",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05,
+          "@3": 0.15,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 1.0,
+          "@5": 0.9026211001048622
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q06",
+      "question": "hypertension lifestyle intervention",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.498,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42925956",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42948938",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42949988",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42925888",
+          "score": 0.6666666666666666
+        },
+        {
+          "rank": 5,
+          "pmid": "42926177",
+          "score": 0.6666666666666666
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.06666666666666667,
+          "@3": 0.2,
+          "@5": 0.26666666666666666
+        },
+        "ndcg": {
+          "@1": 0.3333333333333333,
+          "@3": 0.687147515984829,
+          "@5": 0.6278248466415494
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q07",
+      "question": "acute ischemic stroke mechanical thrombectomy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.484,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42909268",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42911883",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42912716",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42922436",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42924239",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05,
+          "@3": 0.15,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 1.0,
+          "@5": 0.9026211001048622
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q08",
+      "question": "sepsis early diagnosis biomarkers",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.47,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42856985",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42857835",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42871829",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42876180",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42908649",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05263157894736842,
+          "@3": 0.15789473684210525,
+          "@5": 0.2631578947368421
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 0.6461858173485043,
+          "@5": 0.7442890884191096
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q09",
+      "question": "rheumatoid arthritis biologic therapy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.318,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42898420",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42898959",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42902419",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42905343",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42941691",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05263157894736842,
+          "@3": 0.15789473684210525,
+          "@5": 0.2631578947368421
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 1.0,
+          "@5": 0.8151510484299677
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q10",
+      "question": "Alzheimer disease biomarkers",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.262,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42942573",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42943736",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42947225",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42947251",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42947286",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05,
+          "@3": 0.15,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 0.3333333333333333,
+          "@3": 0.687147515984829,
+          "@5": 0.7738931964842558
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q11",
+      "question": "COVID-19 vaccine efficacy",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.416,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42807221",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42842944",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42869875",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42872797",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42931376",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.0,
+          "@3": 0.125,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 0.0,
+          "@3": 0.17690709132574783,
+          "@5": 0.3176588314705989
+        },
+        "mrr": 0.5,
+        "has_relevant_label": true
+      }
+    },
+    {
+      "question_id": "q12",
+      "question": "chronic kidney disease SGLT2 inhibitors",
+      "candidate_count": 20,
+      "label_count": 20,
+      "missing_label_pmids": [],
+      "unknown_label_pmids": [],
+      "status": "complete",
+      "latency_ms": 1.963,
+      "ranked": [
+        {
+          "rank": 1,
+          "pmid": "42923500",
+          "score": 1.0
+        },
+        {
+          "rank": 2,
+          "pmid": "42925557",
+          "score": 1.0
+        },
+        {
+          "rank": 3,
+          "pmid": "42926181",
+          "score": 1.0
+        },
+        {
+          "rank": 4,
+          "pmid": "42930014",
+          "score": 1.0
+        },
+        {
+          "rank": 5,
+          "pmid": "42932136",
+          "score": 1.0
+        }
+      ],
+      "metrics": {
+        "recall": {
+          "@1": 0.05,
+          "@3": 0.15,
+          "@5": 0.25
+        },
+        "ndcg": {
+          "@1": 1.0,
+          "@3": 0.8026120593560899,
+          "@5": 0.8573424901769816
+        },
+        "mrr": 1.0,
+        "has_relevant_label": true
+      }
+    }
+  ]
+}

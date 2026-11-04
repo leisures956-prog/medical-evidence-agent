@@ -27,3 +27,6 @@ Thumbs.db
 
 # Generated local evaluation output
 evaluation_results.json
+
+# Local LLM response cache
+artifacts/llm_cache/

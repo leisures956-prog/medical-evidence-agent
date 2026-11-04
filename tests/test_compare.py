@@ -1,9 +1,13 @@
+import pytest
 from fastapi.testclient import TestClient
 
 from app.comparison import classify_article
 from app.main import app, get_search_service
 from app.medical_models import MedicalDocument, RetrievalHit
 from app.search import SearchService
+
+
+pytestmark = pytest.mark.api_runtime
 
 
 def make_document(pmid: str, title: str, abstract: str) -> MedicalDocument:
