@@ -58,14 +58,46 @@ flowchart LR
     PUBMED --> PH[pubmed_hybrid]
     PH --> EVIDENCE[/evidence]
     PH --> COMPARE[/compare]
+    PH --> AGENT["/agent-answer"]
+    AGENT --> GATE[证据充分性门控]
+    GATE -->|证据充分| LLM[Ollama grounded answer]
+    GATE -->|证据不足| REWRITE[查询改写与有限重试]
+    REWRITE --> PH
+    LLM --> CITE[引用检查与回答修复]
+    CITE --> OUT[回答 + PMID / evidence_id]
     EVIDENCE --> EXTRACT[摘要级证据提取]
     EXTRACT --> VALIDATE[PMID / 原文片段校验]
     VALIDATE --> ANSWER[/answer 与引用绑定]
+    ANSWER --> OUT
     EXTRACT --> GRAPH[JSON 证据知识图谱]
 ```
 
 其中 `hybrid` 只表示本地文档的关键词 + 向量检索，`pubmed_hybrid` 表示 PubMed 候选文献的混合排序，
 两者语义保持独立。
+
+## GitHub 快速入口
+
+- [真实 Agent JSON 输出](examples/agent_answer_real.json)
+- [六题人工检索评测报告](data/benchmark/retrieval_report_six_question_v1.md)
+- [六题检索评测原始结果](data/benchmark/retrieval_benchmark_six_question_v1.json)
+
+真实 Agent 输出是在 PubMed 接口恢复后，通过本地 Ollama `qwen2.5:3b` 运行得到的，
+状态为 `completed`，包含 3 条引用绑定。README 只展示摘要字段；完整回答、PMID、
+`evidence_id` 和执行轨迹请查看 JSON 文件。环境变量、邮箱和 API key 不写入示例文件。
+
+示例摘要：
+
+```json
+{
+  "status": "completed",
+  "citations": [1, 3],
+  "citation_binding_count": 3,
+  "metadata": {
+    "model": "qwen2.5:3b",
+    "prompt_version": "grounded-answer-v3.5"
+  }
+}
+```
 
 ## 使用 Python 3.11 环境
 
@@ -365,6 +397,22 @@ python -m app.evaluation --mode metadata_only --top-k 3 --candidate-limit 20 --o
 该结果使用 assistant-draft 标签和词法代理指标，不等同于人工医学金标准或完整的语义蕴含评测；
 原始记录位于 `artifacts/evaluation/answer_eval_v1_stage61_v35_real.json`。
 
+## 固定候选池人工检索评测
+
+对 `pubmed-snapshot-v1` 中 6 个完整标注问题、每题 20 篇候选文献进行了单人标注评测。
+Recall/MRR 将 `relevance >= 1` 视为相关，nDCG 使用 0/1/2 分级标签。
+
+| 方法 | Recall@1 | Recall@3 | Recall@5 | MRR | nDCG@5 | 平均查询延迟 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Keyword | 0.045 | 0.136 | 0.268 | 0.889 | 0.639 | 2.04 ms |
+| Vector | 0.066 | 0.198 | 0.309 | 1.000 | 0.895 | 21.91 ms |
+| Hybrid | 0.066 | 0.198 | 0.309 | 1.000 | 0.896 | 17.17 ms |
+
+在本候选池和标注范围内，Vector/Hybrid 的排序指标高于 Keyword；Hybrid 与 Vector 的召回接近，
+nDCG@5 略高且查询延迟较低。该结果是固定候选池上的小规模人工评测，不代表 PubMed 全库召回率。
+完整方法、质量标记、Bad Case 和局限性见
+[retrieval_report_six_question_v1.md](data/benchmark/retrieval_report_six_question_v1.md)。
+
 ## 轻量证据知识图谱
 
 `app/knowledge_graph.py` 只接受已经通过结构校验的 `StructuredEvidence`，不会从未验证的
@@ -484,6 +532,21 @@ PubMed 摘要召回
 阶段 8D 的 GitHub Actions 只运行离线 unit 测试；真实 PubMed、PostgreSQL 和 Ollama 测试继续保持显式开启，
 避免 CI 因外部服务变化而产生不可复现结果。后续如需生产化，可再考虑 Redis、异步 PubMed 客户端、
 更严格的语义蕴含评测和实体链接，但这些不属于当前可复现基线。
+
+## 两个项目的能力链
+
+两个项目目前是相互独立的项目，不表示项目一的数据已经接入项目二；它们共同体现一条完整的 AI 数据与应用质量链：
+
+```text
+项目一：网页数据质量与评测 Pipeline
+HTML 正文抽取 → 去重 → 质量评分 → keep / review / reject → Benchmark 与 Bad Case
+                                      ↓
+项目二：医学证据 RAG 与 Agent 评测系统
+PubMed 摘要召回 → 关键词/向量混合排序 → 结构化证据 → PMID 引用校验 → 证据不足拒答
+```
+
+这条能力链对应三个问题：输入数据是否可靠、检索结果是否相关、模型回答是否有证据支持。
+项目一侧重输入端数据质量，项目二侧重检索端和输出端的可追溯性。
 
 ### 本版本暂不纳入
 
