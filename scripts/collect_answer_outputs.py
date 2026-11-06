@@ -7,7 +7,7 @@ import json
 import sys
 import time
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 if __package__ in {None, ''}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -25,8 +25,20 @@ OUTPUT = ROOT / 'artifacts/evaluation/answer_outputs_v1.json'
 
 
 def checked_output(path: Path) -> Path:
-    path = path.resolve()
-    if not path.is_relative_to(ROOT.resolve()):
+    root = ROOT.resolve()
+
+    # On POSIX, pathlib treats a Windows path such as ``C:/...`` as a
+    # relative filename.  Inspect the spelling independently so a forbidden
+    # drive path cannot bypass this guard in CI.
+    windows_path = PureWindowsPath(str(path))
+    root_windows_path = PureWindowsPath(str(root))
+    if windows_path.drive:
+        root_drive = root_windows_path.drive
+        if not root_drive or windows_path.drive.upper() != root_drive.upper():
+            raise ValueError('Output must stay inside the D-drive project.')
+
+    path = path.expanduser().resolve()
+    if not path.is_relative_to(root):
         raise ValueError('Output must stay inside the D-drive project.')
     return path
 
